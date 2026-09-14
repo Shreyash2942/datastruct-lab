@@ -1,0 +1,5 @@
+# Direct dependencies verified in the Day 1 Python 3.14 environment.
+streamlit==1.63.0
+pytest==9.1.1
+matplotlib==3.11.2
+pandas==3.0.5

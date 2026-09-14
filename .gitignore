@@ -1,0 +1,28 @@
+# Python and local environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Test and tool caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local settings and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Graphify extraction cache (keep final reports and graphs)
+graphify-out/.*
