@@ -1,1 +1,5 @@
-"""Stack, queue, and linked-list implementations planned for Days 2–3."""
+"""Core data structures for the learning tool."""
+
+from .stack import Stack
+
+__all__ = ["Stack"]
