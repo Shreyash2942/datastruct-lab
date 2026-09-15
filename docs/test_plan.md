@@ -8,7 +8,9 @@ and Streamlit, pytest, Matplotlib, pandas, and all `src` packages import. Confir
 
 ## Days 2–3: data structures
 
-Add `tests/test_stack.py`, `tests/test_queue.py`, and `tests/test_linked_list.py`.
+Day 2 includes `tests/test_stack.py` and `tests/test_queue.py` so each new
+implementation is verified before its feature commit. On Day 3, add
+`tests/test_linked_list.py` and expand coverage as needed.
 
 - Verify LIFO/FIFO order across multiple additions and removals.
 - Cover empty, single-element, duplicate, and repeated-operation cases.
