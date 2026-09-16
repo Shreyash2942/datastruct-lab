@@ -11,16 +11,16 @@ def test_stack_follows_lifo_and_preserves_state_during_reads():
     assert stack.size() == 0
     assert stack.search(10) is False
 
-    for count, value in enumerate([10, 20, 10], start=1):
+    for count, value in enumerate([10, 20, 10, 30], start=1):
         assert stack.push(value) is None
         assert stack.size() == count
         assert stack.is_empty() is False
 
-    assert stack.peek() == 10
+    assert stack.peek() == 30
     assert stack.search(20) is True
     assert stack.search(99) is False
-    assert stack.size() == 3
-    for remaining, expected in zip([2, 1, 0], [10, 20, 10]):
+    assert stack.size() == 4
+    for remaining, expected in zip([3, 2, 1, 0], [30, 10, 20, 10]):
         assert stack.pop() == expected
         assert stack.size() == remaining
         assert stack.is_empty() is (remaining == 0)

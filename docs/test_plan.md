@@ -9,8 +9,9 @@ and Streamlit, pytest, Matplotlib, pandas, and all `src` packages import. Confir
 ## Days 2–3: data structures
 
 Day 2 includes `tests/test_stack.py` and `tests/test_queue.py` so each new
-implementation is verified before its feature commit. On Day 3, add
-`tests/test_linked_list.py` and expand coverage as needed.
+implementation is verified before its feature commit. Day 3 adds
+`tests/test_linked_list.py` and strengthens the Stack ordering example.
+All 23 cases pass: 5 Stack, 5 Queue, and 13 Node/Linked List cases.
 
 - Verify LIFO/FIFO order across multiple additions and removals.
 - Cover empty, single-element, duplicate, and repeated-operation cases.
@@ -19,6 +20,9 @@ implementation is verified before its feature commit. On Day 3, add
 - Delete linked-list head, middle, tail, missing value, and first duplicate.
 - Check traversal order, empty traversal, and returned-list independence.
 - Verify size and empty status after each mutation and instance independence.
+- Compare 300 deterministic mixed linked-list operations to a Python-list model.
+- Exercise a 3,000-node chain to check iterative search, deletion, and traversal.
+- Verify that traversal copies the container while preserving references to values.
 
 ## Day 4: manual UI checks
 
