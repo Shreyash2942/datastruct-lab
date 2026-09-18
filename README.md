@@ -102,6 +102,10 @@ From the repository root, run:
 Open the local URL printed by Streamlit (normally `http://localhost:8501`).
 Press `Ctrl+C` in the terminal to stop the server.
 
+No email or Streamlit account is needed to run the local lab. Project settings
+disable Streamlit's first-run email prompt and usage statistics. Launch from
+the repository root so Streamlit loads these settings.
+
 1. Choose **Stack**, **Queue**, or **Linked List** in the sidebar.
 2. Enter a whole number such as `10` or `-5` and click **Push**, **Enqueue**, or
    **Insert**. Duplicates are allowed.
