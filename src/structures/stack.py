@@ -58,3 +58,11 @@ class Stack(Generic[T]):
     def size(self) -> int:
         """Return the number of stored values; no arguments. Time: O(1)."""
         return len(self._items)
+
+    def to_list(self) -> list[T]:
+        """Return a shallow snapshot from top to bottom in O(n) time/space.
+
+        Takes no arguments. Changing the returned container leaves the stack
+        unchanged; mutable values themselves remain shared.
+        """
+        return list(reversed(self._items))

@@ -92,6 +92,13 @@ returns `True`; deleting a missing value returns `False`. An empty traversal is
 Acceptance: a user can perform each supported operation, observe the resulting
 state, switch pages without losing it, and reset a structure to empty.
 
+Day 4 display API: `Stack.to_list()` returns top-to-bottom values;
+`Queue.to_list()` returns front-to-rear values. Both return independent shallow
+list snapshots in O(n) time and space, so the interface never reads private
+storage or duplicates the data structure state. Linked List uses `traverse()`.
+UI values are signed decimal integers of at most 64 digits. Session state is
+temporary and is not persisted across a fresh browser session.
+
 ## Complexity analyzer — Day 5
 
 - Accept structure, supported operation, and positive integer input size.

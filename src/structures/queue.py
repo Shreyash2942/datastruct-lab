@@ -56,3 +56,11 @@ class Queue(Generic[T]):
     def size(self) -> int:
         """Return the number of stored values; no arguments. Time: O(1)."""
         return len(self._items)
+
+    def to_list(self) -> list[T]:
+        """Return a shallow snapshot from front to rear in O(n) time/space.
+
+        Takes no arguments. Changing the returned container leaves the queue
+        unchanged; mutable values themselves remain shared.
+        """
+        return list(self._items)

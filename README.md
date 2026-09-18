@@ -11,9 +11,10 @@ understand first in, first out (FIFO). Explore a **Linked List** to see how node
 connect values without contiguous storage. Import any of the three classes,
 experiment with their operations, and read the tests as examples of behavior.
 
-**Current milestone: Day 3 — all three core structures.** Stack, Queue, and
-Linked List are implemented with documented operations and 23 passing tests.
-The interface and benchmarks are scheduled for subsequent days.
+**Current milestone: Day 4 — interactive learning lab.** Explore Stack, Queue,
+and Linked List through a Streamlit interface with live diagrams, operation
+feedback, and use cases. The project has 46 passing tests. Complexity analysis
+and benchmarks are the next milestones.
 
 ## Features
 
@@ -22,11 +23,12 @@ Available now:
 - Stack: `push`, `pop`, `peek`, `search`, `is_empty`, and `size`.
 - Queue: `enqueue`, `dequeue`, `peek`, `search`, `is_empty`, and `size`.
 - Linked List: `insert`, `delete`, `search`, `traverse`, `is_empty`, and `size`.
+- Streamlit navigation, live diagrams, independent session state, and Reset.
+- Integer input validation, operation feedback, and real-world use cases.
 - Clear empty-operation errors, type hints, complexity docstrings, and tests.
 
 Planned assignment features:
 
-- Interactive diagrams, use cases, and friendly operation feedback.
 - Big-O explanations for time and space usage.
 - Repeated benchmarks, CSV results, and performance charts.
 - A one-page analysis and a 3–5 minute demonstration video.
@@ -77,11 +79,48 @@ These commands use the virtual environment directly; activation is optional.
 The project has been tested on Windows with Python 3.14.4. The macOS/Linux
 commands are provided for those platforms but have not been tested there.
 
-The full dependency file includes libraries for the planned interface and
+The full dependency file includes libraries for the interface and planned
 charts. The three core data structure modules themselves use only Python's
 standard library.
 
 ## Usage
+
+### Launch the interactive lab
+
+From the repository root, run:
+
+```powershell
+# Windows
+.\.venv\Scripts\python.exe -m streamlit run app.py
+```
+
+```bash
+# macOS / Linux
+.venv/bin/python -m streamlit run app.py
+```
+
+Open the local URL printed by Streamlit (normally `http://localhost:8501`).
+Press `Ctrl+C` in the terminal to stop the server.
+
+1. Choose **Stack**, **Queue**, or **Linked List** in the sidebar.
+2. Enter a whole number such as `10` or `-5` and click **Push**, **Enqueue**, or
+   **Insert**. Duplicates are allowed.
+3. Try removal, search, and peek or traversal. Watch the diagram and element
+   count update. Linked-list **Delete** uses the value field and removes only
+   the first matching node from the head.
+4. Switch pages freely: each structure keeps independent state in this session.
+5. Use **Reset** to empty only the selected structure.
+
+Stack shows **TOP** vertically; Queue shows **FRONT** and **REAR**; Linked List
+shows **HEAD**, node links, and the final **None** reference. The **Values as
+text** panel provides the same contents in reading order. Large diagrams scroll.
+Invalid input and empty operations show a friendly message without changing data.
+
+State is temporary: a new or reloaded browser session starts fresh. The
+**Complexity Analyzer** and **Performance** pages are labeled placeholders for
+Days 5 and 6. They do not yet calculate predictions or run benchmarks.
+
+![Stack page with 30 at the top of a three-element stack](images/day4-stack.png)
 
 ### Start a Python session
 
@@ -200,6 +239,10 @@ resizing can make a single push/pop O(n), while the average cost over a sequence
 is O(1). Queue uses `collections.deque`. Both structures use O(n) storage.
 Search costs assume constant-time equality comparisons.
 
+For read-only display, `Stack.to_list()` returns a shallow snapshot from top to
+bottom and `Queue.to_list()` from front to rear. Both take O(n) time and result
+space; editing the returned container does not change the structure.
+
 | Linked List operation | Return value | Time |
 | --- | --- | --- |
 | `insert(value)` | `None`; adds at the head | O(1) |
@@ -216,15 +259,14 @@ goes through `LinkedList` methods.
 
 ## Interface and Roadmap
 
-The current release is used through Python. `app.py` and the Streamlit interface
-are not implemented yet.
+Use the Streamlit lab or import the structures directly from Python.
 
 | Milestone | Work | Status |
 | --- | --- | --- |
 | Day 1 | Project setup and requirements | Complete |
 | Day 2 | Stack, Queue, initial tests | Complete |
 | Day 3 | Linked List and expanded tests | Complete |
-| Day 4 | Interactive Streamlit interface and diagrams | Planned |
+| Day 4 | Interactive Streamlit interface and diagrams | Complete |
 | Day 5 | Complexity analyzer | Planned |
 | Day 6 | Benchmarks, CSV results, and charts | Planned |
 | Day 7 | Final analysis, demo video, and submission | Planned |
@@ -233,6 +275,8 @@ are not implemented yet.
 
 ```text
 datastruct-lab/
+├── app.py                # Streamlit entry point
+├── .streamlit/config.toml # Theme and local app settings
 ├── README.md
 ├── requirements.txt
 ├── src/
@@ -242,15 +286,15 @@ datastruct-lab/
 │   │   └── linked_list.py # Node and singly linked list
 │   ├── analysis/         # Complexity analyzer (Day 5)
 │   ├── benchmark/        # Performance testing (Day 6)
-│   └── visualization/    # Visual helpers (Days 4–6)
-├── tests/                # Stack, queue, and linked-list tests
+│   └── visualization/    # HTML structure diagrams
+├── tests/                # Core, diagram, and Streamlit interaction tests
 ├── docs/                 # Plan, requirements, test plan, milestone status
 ├── reports/              # Performance report and one-page analysis
 ├── data/                 # Measured benchmark CSV output
 └── images/               # Generated charts and screenshots
 ```
 
-`app.py` and the remaining modules will be added at their scheduled milestones.
+Complexity and benchmarking modules will be added at their scheduled milestones.
 
 ## Testing
 
@@ -266,16 +310,19 @@ On macOS/Linux:
 .venv/bin/python -m pytest
 ```
 
-The current suite contains 23 passing tests: 5 Stack, 5 Queue, and 13 Node/Linked
-List cases. To run one structure's tests, append `tests/test_stack.py`,
-`tests/test_queue.py`, or `tests/test_linked_list.py` to the command.
+The current suite contains 46 passing tests: 23 core cases, 9 diagram/snapshot
+cases, and 14 Streamlit interaction cases. To run one area, append a test file
+such as `tests/test_linked_list.py`, `tests/test_visualizer.py`, or
+`tests/test_app.py` to the command.
 
 The suite covers ordering, duplicates, empty-operation errors, successful
 and missing searches, non-mutating reads, instance independence, non-hashable
 values, and repeated operations. Linked-list tests also cover deletion at each
 position, first-match deletion, independent traversal results, a deterministic
 mixed-operation sequence, and a 3,000-node chain. The [test plan](docs/test_plan.md)
-describes the checks and later milestones.
+describes the checks and later milestones. Streamlit tests cover all seven
+pages, every control, input validation, state persistence, independent resets,
+and separate sessions. A real browser check supplements the automated suite.
 
 ## Performance Analysis
 
@@ -285,7 +332,7 @@ Results will go in `data/benchmark_results.csv`, charts in `images/`, and the
 interpretation in `reports/performance_report.md`.
 
 Big-O predicts growth as input size increases; it does not predict exact runtime.
-No measured results or charts have been generated at the Day 3 milestone.
+No measured results or charts have been generated at the Day 4 milestone.
 
 ## Troubleshooting
 
@@ -295,6 +342,8 @@ No measured results or charts have been generated at the Day 3 milestone.
   the virtual-environment Python commands above.
 - **Empty Stack or Queue error:** add a value first, check `is_empty()`, or catch
   `IndexError` as shown in the example.
+- **Port 8501 is in use:** append `--server.port 8502` to the Streamlit launch
+  command and use the new URL it prints.
 
 ## Further Reading
 
@@ -304,3 +353,4 @@ No measured results or charts have been generated at the Day 3 milestone.
 - [Day 1 setup notes](docs/day_1.md)
 - [Day 2 implementation notes](docs/day_2.md)
 - [Day 3 implementation and verification](docs/day_3.md)
+- [Day 4 interface and verification](docs/day_4.md)

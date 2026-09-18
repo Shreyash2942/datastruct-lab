@@ -1,1 +1,1 @@
-"""Structure diagrams and performance charts planned for Days 4–6."""
+"""Live structure diagrams; performance charts are planned for Day 6."""

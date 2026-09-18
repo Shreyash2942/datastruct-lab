@@ -24,10 +24,17 @@ All 23 cases pass: 5 Stack, 5 Queue, and 13 Node/Linked List cases.
 - Exercise a 3,000-node chain to check iterative search, deletion, and traversal.
 - Verify that traversal copies the container while preserving references to values.
 
-## Day 4: manual UI checks
+## Day 4: interface and visualization checks
 
-Exercise every operation, reset, invalid input, and empty case. Confirm diagrams
-match state, labels/use cases appear, and state survives reruns/page navigation.
+`tests/test_app.py` uses Streamlit AppTest for 14 cases: all seven pages, every
+structure operation, reset, invalid input, empty feedback, navigation/reruns,
+independent structure state, and separate sessions. `tests/test_visualizer.py`
+adds 9 cases for labels, HTML escaping, ordering, unsupported diagram types,
+and independent Stack/Queue snapshots. With the 23 core cases, 46 tests pass.
+
+Browser checks supplement AppTest: launch the real server, perform additions
+and removals on all three structure pages, inspect desktop and narrow layouts,
+and verify TOP, FRONT/REAR, HEAD/None, operation feedback, and scrolling.
 
 ## Day 5: complexity checks
 
