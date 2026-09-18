@@ -4,6 +4,7 @@ import re
 
 import streamlit as st
 
+from src.analysis import analyze_complexity, supported_operations, supported_structures
 from src.structures import LinkedList, Queue, Stack
 from src.visualization.visualizer import DIAGRAM_CSS, structure_diagram
 
@@ -137,6 +138,48 @@ def render_structure(kind: str) -> None:
         st.markdown(f"- {use}")
 
 
+def render_complexity() -> None:
+    """Explore predicted time, space, and normalized growth without mutations."""
+    st.caption("04 / HOW DOES THE WORK GROW?")
+    st.title("Complexity Analyzer")
+    st.write("Choose an operation and explore what changes as the input grows. These predictions describe the implementations in this lab.")
+    controls, result_area = st.columns([1, 2], gap="large")
+    with controls, st.container(border=True):
+        st.subheader("Choose a scenario")
+        structure = st.selectbox("Data structure", supported_structures(), key="complexity_structure")
+        operations = supported_operations(structure)
+        if st.session_state.get("complexity_operation") not in operations:
+            st.session_state.complexity_operation = operations[0]
+        labels = {"insert": "Insert (at head)", "delete": "Delete (first match)", "to_list": "To list (snapshot)", "is_empty": "Is empty"}
+        operation = st.selectbox("Operation", operations, format_func=lambda name: labels.get(name, name.capitalize()), key="complexity_operation")
+        size = st.number_input("Input size (n)", min_value=1, max_value=1_000_000_000, value=10_000, step=1, key="complexity_size", help="Number of stored values. This scenario does not create or change your structures.")
+        st.caption("Change a selection to update the prediction.")
+    with result_area:
+        try:
+            prediction = analyze_complexity(structure, operation, size)
+        except ValueError as error:
+            st.warning(str(error))
+            return
+        rule = prediction.rule
+        time, storage = st.columns(2)
+        time.metric("Predicted time complexity", rule.time)
+        storage.metric("Total structure storage", prediction.storage_space)
+        st.subheader("Why this bound?")
+        st.write(rule.explanation)
+        st.write(f"**Best-case time:** {rule.best_time} · **Worst single-operation time:** {rule.worst_time}")
+        st.write(f"**Auxiliary space (excluding result):** {rule.auxiliary_space}")
+        st.write(f"**Result space:** {rule.result_space}")
+        st.caption("Total storage covers the existing structure. Auxiliary space covers temporary work; result space covers the returned value or container. Bounds assume constant-cost equality and fixed-size references.")
+    st.divider()
+    st.subheader("What happens as n grows?")
+    st.write(prediction.growth_explanation)
+    st.line_chart(
+        {"Input size": [point[0] for point in prediction.growth_points], "Relative work": [point[1] for point in prediction.growth_points]},
+        x="Input size", y="Relative work", x_label="Input size (n)", y_label="Relative work (illustrative)", color="#087F72",
+    )
+    st.caption("Normalized to 1 at your selected n. This is a theoretical growth illustration, not a runtime measurement or a comparison of absolute speed between operations.")
+
+
 def main() -> None:
     """Launch the seven-page learning interface."""
     st.set_page_config(page_title="DataStruct Lab", page_icon="🧩", layout="wide")
@@ -154,9 +197,7 @@ def main() -> None:
     elif page in FACTORIES:
         render_structure(page)
     elif page == "Complexity Analyzer":
-        st.title("Complexity Analyzer")
-        st.info("Coming on Day 5: choose a structure, operation, and input size to explore time and space complexity.")
-        st.write("For now, explore the structure pages to see how operation order affects their contents.")
+        render_complexity()
     elif page == "Performance":
         st.title("Performance")
         st.info("Coming on Day 6: repeated benchmarks, measured runtimes, CSV results, and growth comparison charts.")
@@ -166,7 +207,8 @@ def main() -> None:
         st.write("DataStruct Lab is a Python learning project for CSC506 Design and Analysis of Algorithms. It connects small, documented implementations with hands-on visual demonstrations.")
         st.subheader("What you can explore today")
         st.write("Stack, Queue, and singly Linked List operations, diagrams, and real-world use cases. All three structures keep independent state while you navigate.")
-        st.caption("Built with Python and Streamlit. Complexity analysis and measured performance are the next milestones.")
+        st.write("The Complexity Analyzer explains time and space bounds for every public operation, with an illustrative growth comparison.")
+        st.caption("Built with Python and Streamlit. Measured performance is the next milestone.")
 
 
 if __name__ == "__main__":
