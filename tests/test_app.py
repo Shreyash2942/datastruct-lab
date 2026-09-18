@@ -27,7 +27,7 @@ def click(app, page, action, value=None):
 def test_every_page_renders(page):
     app = open_page(page)
     assert len(app.title) >= 1
-    if page in {"Complexity Analyzer", "Performance"}:
+    if page == "Performance":
         assert "Coming on Day" in app.info[0].value
 
 
@@ -115,3 +115,50 @@ def test_navigation_reruns_resets_and_sessions_are_independent():
     fresh = open_page("Linked List")
     assert fresh.metric[0].value == "0"
     assert app.session_state["structures"]["Linked List"].traverse() == [40]
+
+
+@pytest.mark.parametrize("structure,operations", [
+    ("Stack", ["push", "pop", "peek", "search", "is_empty", "size", "to_list"]),
+    ("Queue", ["enqueue", "dequeue", "peek", "search", "is_empty", "size", "to_list"]),
+    ("Linked List", ["insert", "delete", "search", "traverse", "is_empty", "size"]),
+])
+def test_analyzer_displays_every_supported_operation(structure, operations):
+    app = open_page("Complexity Analyzer")
+    app.selectbox("complexity_structure").set_value(structure).run()
+    app.number_input("complexity_size").set_value(100).run()
+    for operation in operations:
+        app.selectbox("complexity_operation").set_value(operation).run()
+        assert not app.exception
+        expected = "O(n)" if operation in {"search", "delete", "traverse", "to_list"} else "O(1) amortized" if structure == "Stack" and operation in {"push", "pop"} else "O(1)"
+        assert app.metric[0].value == expected
+        assert app.metric[1].value == "O(n)"
+        text = " ".join(item.value for item in app.markdown)
+        assert "Auxiliary space" in text and "Result space" in text
+        assert "100" in text and "400" in text
+        assert "not a runtime measurement" in " ".join(item.value for item in app.caption)
+
+
+def test_analyzer_resets_incompatible_operation_and_leaves_structures_unchanged():
+    app = open_page("Stack")
+    click(app, "Stack", "Push", "42")
+    app.radio("page").set_value("Complexity Analyzer").run()
+    app.selectbox("complexity_operation").set_value("pop").run()
+    app.selectbox("complexity_structure").set_value("Linked List").run()
+    assert app.selectbox("complexity_operation").value == "insert"
+    app.selectbox("complexity_operation").set_value("search").run()
+    app.number_input("complexity_size").set_value(1_000_000_000).run()
+    assert not app.exception
+    assert app.metric[0].value == "O(n)"
+    assert app.session_state["structures"]["Stack"].to_list() == [42]
+    assert app.session_state["structures"]["Queue"].is_empty()
+    assert app.session_state["structures"]["Linked List"].is_empty()
+    app.radio("page").set_value("Stack").run()
+    assert app.metric[0].value == "1"
+
+
+def test_analyzer_clearing_size_restores_valid_default():
+    app = open_page("Complexity Analyzer")
+    app.number_input("complexity_size").set_value(None).run()
+    assert not app.exception
+    assert app.number_input("complexity_size").value == 10_000
+    assert app.metric[0].value == "O(1) amortized"

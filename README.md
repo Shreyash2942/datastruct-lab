@@ -11,10 +11,10 @@ understand first in, first out (FIFO). Explore a **Linked List** to see how node
 connect values without contiguous storage. Import any of the three classes,
 experiment with their operations, and read the tests as examples of behavior.
 
-**Current milestone: Day 4 — interactive learning lab.** Explore Stack, Queue,
-and Linked List through a Streamlit interface with live diagrams, operation
-feedback, and use cases. The project has 46 passing tests. Complexity analysis
-and benchmarks are the next milestones.
+**Current milestone: Day 5 — complexity predictions.** Explore Stack, Queue,
+and Linked List through live diagrams, then compare the time and space growth
+of their operations in the Complexity Analyzer. The project has 99 passing
+tests. Measured benchmarks are the next milestone.
 
 ## Features
 
@@ -26,10 +26,11 @@ Available now:
 - Streamlit navigation, live diagrams, independent session state, and Reset.
 - Integer input validation, operation feedback, and real-world use cases.
 - Clear empty-operation errors, type hints, complexity docstrings, and tests.
+- Complexity predictions for all 20 public operations, with explanations and
+  an illustrative growth chart.
 
 Planned assignment features:
 
-- Big-O explanations for time and space usage.
 - Repeated benchmarks, CSV results, and performance charts.
 - A one-page analysis and a 3–5 minute demonstration video.
 
@@ -121,10 +122,43 @@ text** panel provides the same contents in reading order. Large diagrams scroll.
 Invalid input and empty operations show a friendly message without changing data.
 
 State is temporary: a new or reloaded browser session starts fresh. The
-**Complexity Analyzer** and **Performance** pages are labeled placeholders for
-Days 5 and 6. They do not yet calculate predictions or run benchmarks.
+**Performance** page remains a labeled placeholder for Day 6's benchmarks.
 
 ![Stack page with 30 at the top of a three-element stack](images/day4-stack.png)
+
+### Explore complexity
+
+Open **Complexity Analyzer** and choose a **Data structure**, **Operation**, and
+positive **Input size (n)**. Results update immediately. Try **Linked List →
+Search → 10,000** to see O(n) search time, O(n) structure storage, and O(1)
+auxiliary space. Then choose **Insert (at head)** to compare its O(1) time.
+
+- Time bounds include best-case and worst single-operation behavior. Stack
+  push/pop explicitly distinguish O(1) amortized cost from O(n) resizing.
+- Space separates the existing structure, temporary auxiliary work, and the
+  returned result. Traversal and snapshots produce O(n) result containers.
+- The growth chart compares n, 2n, and 4n, normalized to 1 at the selected n.
+  Its ratios illustrate a constant or linear model; they are not measured
+  runtimes, exact instruction counts, or absolute speed comparisons.
+- The UI accepts sizes from 1 through 1,000,000,000. It does not allocate those
+  elements or change the contents of your live structures.
+
+The same analyzer is available directly from Python:
+
+```python
+from src.analysis import analyze_complexity
+
+prediction = analyze_complexity("Linked List", "search", 10_000)
+print(prediction.rule.time)             # O(n)
+print(prediction.storage_space)         # O(n)
+print(prediction.rule.auxiliary_space)  # O(1)
+print(prediction.growth_points)        # ((10000, 1), (20000, 2), (40000, 4))
+```
+
+Use `supported_structures()` and `supported_operations(structure)` from
+`src.analysis` to list valid names. The API rejects unknown combinations and
+nonpositive/noninteger sizes with `ValueError`, including booleans.
+See [Day 5 notes](docs/day_5.md) for assumptions and verification.
 
 ### Start a Python session
 
@@ -271,7 +305,7 @@ Use the Streamlit lab or import the structures directly from Python.
 | Day 2 | Stack, Queue, initial tests | Complete |
 | Day 3 | Linked List and expanded tests | Complete |
 | Day 4 | Interactive Streamlit interface and diagrams | Complete |
-| Day 5 | Complexity analyzer | Planned |
+| Day 5 | Complexity analyzer | Complete |
 | Day 6 | Benchmarks, CSV results, and charts | Planned |
 | Day 7 | Final analysis, demo video, and submission | Planned |
 
@@ -288,7 +322,7 @@ datastruct-lab/
 │   │   ├── stack.py      # LIFO implementation
 │   │   ├── queue.py      # FIFO implementation
 │   │   └── linked_list.py # Node and singly linked list
-│   ├── analysis/         # Complexity analyzer (Day 5)
+│   ├── analysis/         # Complexity rules and prediction API
 │   ├── benchmark/        # Performance testing (Day 6)
 │   └── visualization/    # HTML structure diagrams
 ├── tests/                # Core, diagram, and Streamlit interaction tests
@@ -298,7 +332,7 @@ datastruct-lab/
 └── images/               # Generated charts and screenshots
 ```
 
-Complexity and benchmarking modules will be added at their scheduled milestones.
+Benchmarking modules will be added on Day 6.
 
 ## Testing
 
@@ -314,10 +348,10 @@ On macOS/Linux:
 .venv/bin/python -m pytest
 ```
 
-The current suite contains 46 passing tests: 23 core cases, 9 diagram/snapshot
-cases, and 14 Streamlit interaction cases. To run one area, append a test file
-such as `tests/test_linked_list.py`, `tests/test_visualizer.py`, or
-`tests/test_app.py` to the command.
+The current suite contains 99 passing tests: 23 core cases, 9 diagram/snapshot
+cases, 19 Streamlit interaction cases, and 48 complexity cases. To run one area,
+append a test file such as `tests/test_complexity.py`, `tests/test_visualizer.py`,
+or `tests/test_app.py` to the command.
 
 The suite covers ordering, duplicates, empty-operation errors, successful
 and missing searches, non-mutating reads, instance independence, non-hashable
@@ -336,7 +370,8 @@ Results will go in `data/benchmark_results.csv`, charts in `images/`, and the
 interpretation in `reports/performance_report.md`.
 
 Big-O predicts growth as input size increases; it does not predict exact runtime.
-No measured results or charts have been generated at the Day 4 milestone.
+No measured results or performance charts have been generated at the Day 5
+milestone. The analyzer's growth chart is a theoretical illustration.
 
 ## Troubleshooting
 
@@ -358,3 +393,4 @@ No measured results or charts have been generated at the Day 4 milestone.
 - [Day 2 implementation notes](docs/day_2.md)
 - [Day 3 implementation and verification](docs/day_3.md)
 - [Day 4 interface and verification](docs/day_4.md)
+- [Day 5 complexity analyzer](docs/day_5.md)

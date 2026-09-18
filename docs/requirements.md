@@ -113,6 +113,14 @@ temporary and is not persisted across a fresh browser session.
 
 Acceptance: every supported combination has a tested, consistent explanation.
 
+Day 5 implementation: cover all 20 public methods, including Stack/Queue
+`to_list()` snapshots. The API uses exact structure names and lowercase method
+names and rejects booleans as sizes. The UI bounds n to 1–1,000,000,000; the API
+accepts any positive Python integer. Prediction constructs three illustrative
+points (n, 2n, 4n) without constructing an n-element structure. The chart is
+normalized to 1 at n and explicitly is not a timing measurement. Size changes
+affect the growth scenario, not the operation's asymptotic class.
+
 ## Benchmarks and charts — Day 6
 
 - Minimum operations: stack push/search, queue enqueue/search, linked-list

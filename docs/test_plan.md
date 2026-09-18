@@ -38,9 +38,16 @@ and verify TOP, FRONT/REAR, HEAD/None, operation feedback, and scrolling.
 
 ## Day 5: complexity checks
 
-Add `tests/test_complexity.py`. Cover every structure/operation combination,
-head-insertion assumptions, amortized list operations, storage versus auxiliary
-space, explanations, and rejection of invalid operations/input sizes.
+`tests/test_complexity.py` contains 48 cases verifying all 20 public operations,
+best/worst and amortized time, total/auxiliary/result space, head insertion,
+explanations, growth ratios, immutable results, and invalid selections/sizes.
+Growth checks use n = 1, 100, and one trillion without allocating structures.
+
+Five additional Streamlit cases exercise every analyzer operation, selector
+changes, input-size updates, clearing the size field (which restores its default),
+and preservation of live structure state. Browser checks cover changing
+selections, visible explanations, input-size updates, and narrow layouts.
+The complete Day 5 suite passes **99 tests**.
 
 ## Day 6: performance checks
 
