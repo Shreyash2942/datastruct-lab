@@ -145,8 +145,15 @@ from actual measurements. Reports describe noise, overhead, and limitations.
 
 - `reports/performance_report.md`: purpose, environment, sizes, trials, expected
   complexity, measured results, charts, interpretation, and limitations.
-- `reports/data_structure_analysis.md`: one-page analysis explaining the three
-  structures, operation trade-offs, application scenarios, and selection criteria.
+- Analysis: 1–3 pages explaining the structures' importance, implementation,
+  operation trade-offs, application scenarios, and selection criteria, following
+  the user's updated reporting requirement. The APA Word report has three body
+  pages; title, references, and supporting appendices are separate. Markdown and
+  a companion PDF are available in `reports/`.
+- `docs/implementation_guide.md`: explain all three working implementations,
+  their public methods, and how the interface and analysis tools use them.
+- `docs/selected_test_cases.md`: highlight three existing tests per structure
+  with inputs, expected outcomes, and reproducible commands; retain the full suite.
 - README: installation, running the app, feature usage, tests, performance,
   screenshots, and future development. Keep milestone status accurate.
 - `docs/demo_script.md` and a 3–5 minute video demonstrating the structures,

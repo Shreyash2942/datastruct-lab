@@ -31,7 +31,8 @@ Available now:
 - Repeated benchmarks for six operation types, raw and summary CSV exports,
   environment metadata, runtime/growth charts, and a report bundle.
 
-- A one-page analysis and a recorded walkthrough with computer-generated narration.
+- A three-page analysis, documented implementations, selected test examples,
+  and a recorded walkthrough with computer-generated narration.
 
 See [requirements](docs/requirements.md) for operation contracts and acceptance
 criteria and [the assignment plan](docs/assignment_plan.md) for the schedule.
@@ -327,7 +328,7 @@ datastruct-lab/
 ├── tests/                # Core, diagram, and Streamlit interaction tests
 ├── docs/                 # Plan, requirements, test plan, milestone status
 ├── demo/                 # Narrated walkthrough, transcript, captions, demo results
-├── reports/              # Performance report and one-page analysis
+├── reports/              # Performance report and APA analysis with appendices
 ├── data/                 # Measured benchmark CSV output
 └── images/               # Generated charts and screenshots
 ```
@@ -345,6 +346,10 @@ On macOS/Linux:
 ```bash
 .venv/bin/python -m pytest
 ```
+
+The [selected test cases](docs/selected_test_cases.md) highlight three existing
+checks per structure, with inputs, expected outcomes, and commands to run them.
+The full suite is retained.
 
 The current suite contains 128 passing tests: 23 core cases, 9 diagram/snapshot
 cases, 21 Streamlit interaction cases, 48 complexity cases, and 27 benchmark cases. To run one area,
@@ -408,12 +413,17 @@ report's limitations before comparing implementations.
 
 ## Reports and Demonstration
 
-- [APA-style Word report](reports/data_structure_analysis_APA.docx): a title page,
-  one page of analysis, and references. The due-date field must be completed
-  before submission.
-- [One-page analysis (PDF)](reports/data_structure_analysis.pdf) and
-  [expanded Markdown](reports/data_structure_analysis.md). These are the original
-  analysis versions; use the Word file for the APA-formatted submission.
+- [APA-style Word report](reports/data_structure_analysis_APA.docx): nine pages,
+  including a title page, three analysis pages, references, and appendices with
+  nine selected tests, a performance table, and two measured-data charts.
+  Complete the title-page due date before submission.
+- [Analysis PDF](reports/data_structure_analysis.pdf): three analysis pages and
+  a reference page. Appendices referenced in this companion PDF are in the Word
+  report. [Markdown analysis](reports/data_structure_analysis.md) is also available.
+- [Implementation guide](docs/implementation_guide.md): internal algorithms,
+  all 20 public operations, runnable examples, and explanations of the interface,
+  complexity predictor, and benchmark engine.
+- [Selected test cases](docs/selected_test_cases.md): three examples per structure.
 - [Performance report](reports/performance_report.md), backed by raw trials
   and metadata in `data/`.
 - [Recorded app walkthrough (4:51 MP4)](demo/datastruct-lab-demo.mp4), with a visible
@@ -425,8 +435,8 @@ report's limitations before comparing implementations.
 Download the MP4 to play it locally if GitHub does not preview it. The walkthrough
 shows actual app interactions and a new benchmark run. Its timings differ from
 the earlier CLI run saved in `data/`; each report identifies its own run and
-environment. The analysis PDF is one US Letter page. Check the instructor's
-required upload format when submitting the files.
+environment. See the [submission checklist](docs/day_7.md) for deliverable
+locations and verification. Check the instructor's required upload format.
 
 The planned `v1.0-assignment` Git tag will preserve the final release after the
 title-page due date is supplied. After that tag is published, inspect it with:

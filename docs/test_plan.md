@@ -66,6 +66,11 @@ charts, CSV/ZIP downloads, preserved Stack state, and a 390-pixel viewport.
 ## Day 7: submission checks
 
 Run the full pytest suite and real-browser UI checks. Reproduce charts from saved
-raw data, inspect the one-page PDF, verify documentation links, and check video
+raw data, inspect the three-page analysis and separate reference page in the PDF,
+verify Word pagination and documentation links, and check video
 duration, audio, captions, and assignment coverage. See [Day 7 evidence](day_7.md)
 for the completed checks and remaining course-portal upload.
+
+The report highlights [nine selected cases](selected_test_cases.md), three per
+structure. Each is matched to an existing passing pytest result; all 128 tests
+remain available. The reporting selection does not reduce automated coverage.
