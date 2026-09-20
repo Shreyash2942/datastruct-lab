@@ -1,0 +1,40 @@
+{
+  "run_id": "3e088bc5908f4059911949ede1f398a3",
+  "started_utc": "2026-09-20T02:35:58.138224+00:00",
+  "completed_utc": "2026-09-20T02:35:59.078466+00:00",
+  "wall_seconds": 0.9402393000200391,
+  "python": "3.14.4",
+  "implementation": "CPython",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+  "packages": {
+    "streamlit": "1.63.0",
+    "matplotlib": "3.11.2",
+    "pandas": "3.0.5"
+  },
+  "source_revision": "885444a2e283482081f79c7a71923b6cc6edc0c4",
+  "timer": "time.perf_counter_ns",
+  "timer_resolution_ns": 100.0,
+  "timer_monotonic": true,
+  "gc_enabled": true,
+  "input_sizes": [
+    100,
+    1000,
+    10000,
+    50000
+  ],
+  "trials_per_case": 30,
+  "warmups_per_case": 3,
+  "runtime_unit": "nanoseconds",
+  "summary_statistic": "median",
+  "fixture": "Fresh values range(n) before every invocation; argument -1 is absent.",
+  "timed_region": "One bound method call; setup, binding, verification, teardown, and rendering excluded.",
+  "case_order": [
+    "Stack.push",
+    "Stack.search",
+    "Queue.enqueue",
+    "Queue.search",
+    "Linked List.insert",
+    "Linked List.search"
+  ]
+}

@@ -51,10 +51,17 @@ The complete Day 5 suite passes **99 tests**.
 
 ## Day 6: performance checks
 
-Verify every requested size/operation produces nonnegative measured runtimes,
-the documented trial count, readable CSV output with declared units, and both
-charts. Check setup is outside timing and search fixtures really miss. Do not
-assert fixed timing thresholds or exact growth ratios in correctness tests.
+The Day 6 suite passes **128 tests**. Twenty-seven benchmark cases verify fresh
+fixtures, missing targets, untimed setup/warmups, exactly one timed call per
+sample, validation, medians/quartiles, normalized growth (including a zero
+baseline), metadata, raw/summary consistency, PNGs, ZIP exports, and safe output
+paths. Two new Streamlit cases verify explicit execution, disabled invalid
+selections, persistence, and unchanged live structures. No test asserts fixed
+runtime thresholds or exact observed growth ratios.
+
+The full CLI run generated 24 summaries and 720 raw samples across the four
+required sizes. Real-browser verification covers a separate full run, both
+charts, CSV/ZIP downloads, preserved Stack state, and a 390-pixel viewport.
 
 ## Day 7: submission checks
 

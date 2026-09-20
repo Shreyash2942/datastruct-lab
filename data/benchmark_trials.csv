@@ -1,0 +1,721 @@
+Structure,Operation,Input_Size,Trial,Runtime_ns
+Stack,push,100,1,400
+Stack,push,100,2,300
+Stack,push,100,3,100
+Stack,push,100,4,100
+Stack,push,100,5,100
+Stack,push,100,6,100
+Stack,push,100,7,0
+Stack,push,100,8,100
+Stack,push,100,9,100
+Stack,push,100,10,100
+Stack,push,100,11,100
+Stack,push,100,12,100
+Stack,push,100,13,100
+Stack,push,100,14,100
+Stack,push,100,15,100
+Stack,push,100,16,100
+Stack,push,100,17,100
+Stack,push,100,18,100
+Stack,push,100,19,100
+Stack,push,100,20,100
+Stack,push,100,21,100
+Stack,push,100,22,100
+Stack,push,100,23,100
+Stack,push,100,24,100
+Stack,push,100,25,100
+Stack,push,100,26,100
+Stack,push,100,27,100
+Stack,push,100,28,100
+Stack,push,100,29,100
+Stack,push,100,30,100
+Stack,push,1000,1,100
+Stack,push,1000,2,100
+Stack,push,1000,3,100
+Stack,push,1000,4,100
+Stack,push,1000,5,100
+Stack,push,1000,6,100
+Stack,push,1000,7,100
+Stack,push,1000,8,100
+Stack,push,1000,9,100
+Stack,push,1000,10,0
+Stack,push,1000,11,100
+Stack,push,1000,12,100
+Stack,push,1000,13,0
+Stack,push,1000,14,100
+Stack,push,1000,15,100
+Stack,push,1000,16,100
+Stack,push,1000,17,100
+Stack,push,1000,18,100
+Stack,push,1000,19,100
+Stack,push,1000,20,100
+Stack,push,1000,21,100
+Stack,push,1000,22,100
+Stack,push,1000,23,100
+Stack,push,1000,24,100
+Stack,push,1000,25,100
+Stack,push,1000,26,100
+Stack,push,1000,27,0
+Stack,push,1000,28,100
+Stack,push,1000,29,0
+Stack,push,1000,30,0
+Stack,push,10000,1,600
+Stack,push,10000,2,400
+Stack,push,10000,3,100
+Stack,push,10000,4,100
+Stack,push,10000,5,100
+Stack,push,10000,6,0
+Stack,push,10000,7,100
+Stack,push,10000,8,0
+Stack,push,10000,9,100
+Stack,push,10000,10,100
+Stack,push,10000,11,100
+Stack,push,10000,12,100
+Stack,push,10000,13,100
+Stack,push,10000,14,0
+Stack,push,10000,15,100
+Stack,push,10000,16,100
+Stack,push,10000,17,100
+Stack,push,10000,18,0
+Stack,push,10000,19,100
+Stack,push,10000,20,100
+Stack,push,10000,21,100
+Stack,push,10000,22,0
+Stack,push,10000,23,100
+Stack,push,10000,24,100
+Stack,push,10000,25,100
+Stack,push,10000,26,100
+Stack,push,10000,27,0
+Stack,push,10000,28,100
+Stack,push,10000,29,100
+Stack,push,10000,30,0
+Stack,push,50000,1,300
+Stack,push,50000,2,100
+Stack,push,50000,3,100
+Stack,push,50000,4,100
+Stack,push,50000,5,100
+Stack,push,50000,6,200
+Stack,push,50000,7,100
+Stack,push,50000,8,100
+Stack,push,50000,9,100
+Stack,push,50000,10,700
+Stack,push,50000,11,600
+Stack,push,50000,12,200
+Stack,push,50000,13,100
+Stack,push,50000,14,100
+Stack,push,50000,15,200
+Stack,push,50000,16,100
+Stack,push,50000,17,100
+Stack,push,50000,18,100
+Stack,push,50000,19,100
+Stack,push,50000,20,600
+Stack,push,50000,21,100
+Stack,push,50000,22,100
+Stack,push,50000,23,100
+Stack,push,50000,24,100
+Stack,push,50000,25,100
+Stack,push,50000,26,100
+Stack,push,50000,27,100
+Stack,push,50000,28,100
+Stack,push,50000,29,100
+Stack,push,50000,30,500
+Stack,search,100,1,800
+Stack,search,100,2,800
+Stack,search,100,3,700
+Stack,search,100,4,700
+Stack,search,100,5,700
+Stack,search,100,6,700
+Stack,search,100,7,700
+Stack,search,100,8,600
+Stack,search,100,9,700
+Stack,search,100,10,700
+Stack,search,100,11,600
+Stack,search,100,12,700
+Stack,search,100,13,700
+Stack,search,100,14,700
+Stack,search,100,15,700
+Stack,search,100,16,600
+Stack,search,100,17,600
+Stack,search,100,18,600
+Stack,search,100,19,600
+Stack,search,100,20,600
+Stack,search,100,21,600
+Stack,search,100,22,700
+Stack,search,100,23,600
+Stack,search,100,24,700
+Stack,search,100,25,600
+Stack,search,100,26,600
+Stack,search,100,27,600
+Stack,search,100,28,600
+Stack,search,100,29,600
+Stack,search,100,30,700
+Stack,search,1000,1,5100
+Stack,search,1000,2,5200
+Stack,search,1000,3,5100
+Stack,search,1000,4,5300
+Stack,search,1000,5,5100
+Stack,search,1000,6,5100
+Stack,search,1000,7,5200
+Stack,search,1000,8,5200
+Stack,search,1000,9,5200
+Stack,search,1000,10,9100
+Stack,search,1000,11,10600
+Stack,search,1000,12,5200
+Stack,search,1000,13,5100
+Stack,search,1000,14,5100
+Stack,search,1000,15,9400
+Stack,search,1000,16,5100
+Stack,search,1000,17,5100
+Stack,search,1000,18,5000
+Stack,search,1000,19,5000
+Stack,search,1000,20,5000
+Stack,search,1000,21,5100
+Stack,search,1000,22,5400
+Stack,search,1000,23,5500
+Stack,search,1000,24,5200
+Stack,search,1000,25,5100
+Stack,search,1000,26,5100
+Stack,search,1000,27,5100
+Stack,search,1000,28,5100
+Stack,search,1000,29,5000
+Stack,search,1000,30,5100
+Stack,search,10000,1,48600
+Stack,search,10000,2,48300
+Stack,search,10000,3,48200
+Stack,search,10000,4,48300
+Stack,search,10000,5,48300
+Stack,search,10000,6,48200
+Stack,search,10000,7,48200
+Stack,search,10000,8,48400
+Stack,search,10000,9,48200
+Stack,search,10000,10,48200
+Stack,search,10000,11,48200
+Stack,search,10000,12,48300
+Stack,search,10000,13,48300
+Stack,search,10000,14,48400
+Stack,search,10000,15,48400
+Stack,search,10000,16,48400
+Stack,search,10000,17,48400
+Stack,search,10000,18,51500
+Stack,search,10000,19,48400
+Stack,search,10000,20,48400
+Stack,search,10000,21,56900
+Stack,search,10000,22,48500
+Stack,search,10000,23,48400
+Stack,search,10000,24,48400
+Stack,search,10000,25,48400
+Stack,search,10000,26,48400
+Stack,search,10000,27,48400
+Stack,search,10000,28,48300
+Stack,search,10000,29,48300
+Stack,search,10000,30,48300
+Stack,search,50000,1,252500
+Stack,search,50000,2,242100
+Stack,search,50000,3,244400
+Stack,search,50000,4,246200
+Stack,search,50000,5,245500
+Stack,search,50000,6,242100
+Stack,search,50000,7,253900
+Stack,search,50000,8,383100
+Stack,search,50000,9,245800
+Stack,search,50000,10,251900
+Stack,search,50000,11,240900
+Stack,search,50000,12,241800
+Stack,search,50000,13,243700
+Stack,search,50000,14,242900
+Stack,search,50000,15,242100
+Stack,search,50000,16,249500
+Stack,search,50000,17,244300
+Stack,search,50000,18,243200
+Stack,search,50000,19,243500
+Stack,search,50000,20,242500
+Stack,search,50000,21,242100
+Stack,search,50000,22,260300
+Stack,search,50000,23,244200
+Stack,search,50000,24,249400
+Stack,search,50000,25,241800
+Stack,search,50000,26,243100
+Stack,search,50000,27,273000
+Stack,search,50000,28,242600
+Stack,search,50000,29,242500
+Stack,search,50000,30,242100
+Queue,enqueue,100,1,200
+Queue,enqueue,100,2,200
+Queue,enqueue,100,3,200
+Queue,enqueue,100,4,100
+Queue,enqueue,100,5,100
+Queue,enqueue,100,6,100
+Queue,enqueue,100,7,100
+Queue,enqueue,100,8,100
+Queue,enqueue,100,9,100
+Queue,enqueue,100,10,100
+Queue,enqueue,100,11,0
+Queue,enqueue,100,12,100
+Queue,enqueue,100,13,100
+Queue,enqueue,100,14,100
+Queue,enqueue,100,15,100
+Queue,enqueue,100,16,0
+Queue,enqueue,100,17,100
+Queue,enqueue,100,18,100
+Queue,enqueue,100,19,0
+Queue,enqueue,100,20,100
+Queue,enqueue,100,21,100
+Queue,enqueue,100,22,100
+Queue,enqueue,100,23,100
+Queue,enqueue,100,24,100
+Queue,enqueue,100,25,100
+Queue,enqueue,100,26,100
+Queue,enqueue,100,27,100
+Queue,enqueue,100,28,100
+Queue,enqueue,100,29,100
+Queue,enqueue,100,30,0
+Queue,enqueue,1000,1,100
+Queue,enqueue,1000,2,200
+Queue,enqueue,1000,3,100
+Queue,enqueue,1000,4,200
+Queue,enqueue,1000,5,100
+Queue,enqueue,1000,6,0
+Queue,enqueue,1000,7,100
+Queue,enqueue,1000,8,0
+Queue,enqueue,1000,9,100
+Queue,enqueue,1000,10,100
+Queue,enqueue,1000,11,0
+Queue,enqueue,1000,12,100
+Queue,enqueue,1000,13,0
+Queue,enqueue,1000,14,100
+Queue,enqueue,1000,15,100
+Queue,enqueue,1000,16,100
+Queue,enqueue,1000,17,100
+Queue,enqueue,1000,18,100
+Queue,enqueue,1000,19,100
+Queue,enqueue,1000,20,100
+Queue,enqueue,1000,21,100
+Queue,enqueue,1000,22,100
+Queue,enqueue,1000,23,100
+Queue,enqueue,1000,24,200
+Queue,enqueue,1000,25,100
+Queue,enqueue,1000,26,0
+Queue,enqueue,1000,27,100
+Queue,enqueue,1000,28,100
+Queue,enqueue,1000,29,100
+Queue,enqueue,1000,30,100
+Queue,enqueue,10000,1,200
+Queue,enqueue,10000,2,100
+Queue,enqueue,10000,3,200
+Queue,enqueue,10000,4,100
+Queue,enqueue,10000,5,100
+Queue,enqueue,10000,6,100
+Queue,enqueue,10000,7,100
+Queue,enqueue,10000,8,100
+Queue,enqueue,10000,9,100
+Queue,enqueue,10000,10,100
+Queue,enqueue,10000,11,100
+Queue,enqueue,10000,12,200
+Queue,enqueue,10000,13,100
+Queue,enqueue,10000,14,100
+Queue,enqueue,10000,15,100
+Queue,enqueue,10000,16,100
+Queue,enqueue,10000,17,100
+Queue,enqueue,10000,18,100
+Queue,enqueue,10000,19,100
+Queue,enqueue,10000,20,100
+Queue,enqueue,10000,21,100
+Queue,enqueue,10000,22,700
+Queue,enqueue,10000,23,200
+Queue,enqueue,10000,24,100
+Queue,enqueue,10000,25,100
+Queue,enqueue,10000,26,100
+Queue,enqueue,10000,27,100
+Queue,enqueue,10000,28,1200
+Queue,enqueue,10000,29,500
+Queue,enqueue,10000,30,800
+Queue,enqueue,50000,1,1000
+Queue,enqueue,50000,2,500
+Queue,enqueue,50000,3,1200
+Queue,enqueue,50000,4,1100
+Queue,enqueue,50000,5,1100
+Queue,enqueue,50000,6,400
+Queue,enqueue,50000,7,200
+Queue,enqueue,50000,8,300
+Queue,enqueue,50000,9,200
+Queue,enqueue,50000,10,200
+Queue,enqueue,50000,11,200
+Queue,enqueue,50000,12,300
+Queue,enqueue,50000,13,2000
+Queue,enqueue,50000,14,1000
+Queue,enqueue,50000,15,400
+Queue,enqueue,50000,16,800
+Queue,enqueue,50000,17,200
+Queue,enqueue,50000,18,100
+Queue,enqueue,50000,19,100
+Queue,enqueue,50000,20,100
+Queue,enqueue,50000,21,500
+Queue,enqueue,50000,22,400
+Queue,enqueue,50000,23,200
+Queue,enqueue,50000,24,200
+Queue,enqueue,50000,25,100
+Queue,enqueue,50000,26,100
+Queue,enqueue,50000,27,100
+Queue,enqueue,50000,28,100
+Queue,enqueue,50000,29,100
+Queue,enqueue,50000,30,2900
+Queue,search,100,1,1600
+Queue,search,100,2,1400
+Queue,search,100,3,1200
+Queue,search,100,4,1200
+Queue,search,100,5,1300
+Queue,search,100,6,1300
+Queue,search,100,7,1200
+Queue,search,100,8,1200
+Queue,search,100,9,1300
+Queue,search,100,10,1200
+Queue,search,100,11,1200
+Queue,search,100,12,1200
+Queue,search,100,13,1100
+Queue,search,100,14,1100
+Queue,search,100,15,1100
+Queue,search,100,16,1100
+Queue,search,100,17,1100
+Queue,search,100,18,1100
+Queue,search,100,19,1300
+Queue,search,100,20,1200
+Queue,search,100,21,1100
+Queue,search,100,22,1100
+Queue,search,100,23,1100
+Queue,search,100,24,1100
+Queue,search,100,25,1100
+Queue,search,100,26,1100
+Queue,search,100,27,1200
+Queue,search,100,28,1200
+Queue,search,100,29,1200
+Queue,search,100,30,1000
+Queue,search,1000,1,10100
+Queue,search,1000,2,5700
+Queue,search,1000,3,5600
+Queue,search,1000,4,5600
+Queue,search,1000,5,5500
+Queue,search,1000,6,5600
+Queue,search,1000,7,5500
+Queue,search,1000,8,5500
+Queue,search,1000,9,5500
+Queue,search,1000,10,5500
+Queue,search,1000,11,5500
+Queue,search,1000,12,5500
+Queue,search,1000,13,5500
+Queue,search,1000,14,5500
+Queue,search,1000,15,5400
+Queue,search,1000,16,5600
+Queue,search,1000,17,5500
+Queue,search,1000,18,5600
+Queue,search,1000,19,5500
+Queue,search,1000,20,5500
+Queue,search,1000,21,5600
+Queue,search,1000,22,5900
+Queue,search,1000,23,5800
+Queue,search,1000,24,5800
+Queue,search,1000,25,5500
+Queue,search,1000,26,5500
+Queue,search,1000,27,5500
+Queue,search,1000,28,5500
+Queue,search,1000,29,5500
+Queue,search,1000,30,5600
+Queue,search,10000,1,36500
+Queue,search,10000,2,35300
+Queue,search,10000,3,38900
+Queue,search,10000,4,35200
+Queue,search,10000,5,42500
+Queue,search,10000,6,42600
+Queue,search,10000,7,35200
+Queue,search,10000,8,35200
+Queue,search,10000,9,35100
+Queue,search,10000,10,35300
+Queue,search,10000,11,35200
+Queue,search,10000,12,35300
+Queue,search,10000,13,35200
+Queue,search,10000,14,39100
+Queue,search,10000,15,35300
+Queue,search,10000,16,35200
+Queue,search,10000,17,35300
+Queue,search,10000,18,35300
+Queue,search,10000,19,35300
+Queue,search,10000,20,35400
+Queue,search,10000,21,35400
+Queue,search,10000,22,35300
+Queue,search,10000,23,35300
+Queue,search,10000,24,35400
+Queue,search,10000,25,63700
+Queue,search,10000,26,36800
+Queue,search,10000,27,35500
+Queue,search,10000,28,35400
+Queue,search,10000,29,35300
+Queue,search,10000,30,35300
+Queue,search,50000,1,179500
+Queue,search,50000,2,188500
+Queue,search,50000,3,180300
+Queue,search,50000,4,1011300
+Queue,search,50000,5,227500
+Queue,search,50000,6,188900
+Queue,search,50000,7,180500
+Queue,search,50000,8,183600
+Queue,search,50000,9,237000
+Queue,search,50000,10,184600
+Queue,search,50000,11,189700
+Queue,search,50000,12,183600
+Queue,search,50000,13,181000
+Queue,search,50000,14,179900
+Queue,search,50000,15,180200
+Queue,search,50000,16,180100
+Queue,search,50000,17,179700
+Queue,search,50000,18,179400
+Queue,search,50000,19,182400
+Queue,search,50000,20,180100
+Queue,search,50000,21,180600
+Queue,search,50000,22,182500
+Queue,search,50000,23,179600
+Queue,search,50000,24,179700
+Queue,search,50000,25,179800
+Queue,search,50000,26,179400
+Queue,search,50000,27,179400
+Queue,search,50000,28,179500
+Queue,search,50000,29,183200
+Queue,search,50000,30,179200
+Linked List,insert,100,1,300
+Linked List,insert,100,2,200
+Linked List,insert,100,3,200
+Linked List,insert,100,4,200
+Linked List,insert,100,5,200
+Linked List,insert,100,6,200
+Linked List,insert,100,7,200
+Linked List,insert,100,8,200
+Linked List,insert,100,9,100
+Linked List,insert,100,10,200
+Linked List,insert,100,11,200
+Linked List,insert,100,12,100
+Linked List,insert,100,13,200
+Linked List,insert,100,14,200
+Linked List,insert,100,15,200
+Linked List,insert,100,16,100
+Linked List,insert,100,17,100
+Linked List,insert,100,18,100
+Linked List,insert,100,19,100
+Linked List,insert,100,20,100
+Linked List,insert,100,21,200
+Linked List,insert,100,22,100
+Linked List,insert,100,23,100
+Linked List,insert,100,24,100
+Linked List,insert,100,25,100
+Linked List,insert,100,26,100
+Linked List,insert,100,27,100
+Linked List,insert,100,28,100
+Linked List,insert,100,29,100
+Linked List,insert,100,30,200
+Linked List,insert,1000,1,200
+Linked List,insert,1000,2,100
+Linked List,insert,1000,3,100
+Linked List,insert,1000,4,200
+Linked List,insert,1000,5,100
+Linked List,insert,1000,6,100
+Linked List,insert,1000,7,100
+Linked List,insert,1000,8,100
+Linked List,insert,1000,9,200
+Linked List,insert,1000,10,200
+Linked List,insert,1000,11,100
+Linked List,insert,1000,12,100
+Linked List,insert,1000,13,200
+Linked List,insert,1000,14,200
+Linked List,insert,1000,15,100
+Linked List,insert,1000,16,100
+Linked List,insert,1000,17,100
+Linked List,insert,1000,18,100
+Linked List,insert,1000,19,100
+Linked List,insert,1000,20,200
+Linked List,insert,1000,21,200
+Linked List,insert,1000,22,200
+Linked List,insert,1000,23,200
+Linked List,insert,1000,24,200
+Linked List,insert,1000,25,200
+Linked List,insert,1000,26,100
+Linked List,insert,1000,27,200
+Linked List,insert,1000,28,200
+Linked List,insert,1000,29,200
+Linked List,insert,1000,30,100
+Linked List,insert,10000,1,700
+Linked List,insert,10000,2,1100
+Linked List,insert,10000,3,400
+Linked List,insert,10000,4,600
+Linked List,insert,10000,5,500
+Linked List,insert,10000,6,300
+Linked List,insert,10000,7,200
+Linked List,insert,10000,8,200
+Linked List,insert,10000,9,200
+Linked List,insert,10000,10,400
+Linked List,insert,10000,11,200
+Linked List,insert,10000,12,200
+Linked List,insert,10000,13,100
+Linked List,insert,10000,14,200
+Linked List,insert,10000,15,200
+Linked List,insert,10000,16,200
+Linked List,insert,10000,17,100
+Linked List,insert,10000,18,200
+Linked List,insert,10000,19,200
+Linked List,insert,10000,20,200
+Linked List,insert,10000,21,200
+Linked List,insert,10000,22,200
+Linked List,insert,10000,23,200
+Linked List,insert,10000,24,800
+Linked List,insert,10000,25,800
+Linked List,insert,10000,26,300
+Linked List,insert,10000,27,200
+Linked List,insert,10000,28,200
+Linked List,insert,10000,29,200
+Linked List,insert,10000,30,200
+Linked List,insert,50000,1,2300
+Linked List,insert,50000,2,1100
+Linked List,insert,50000,3,1100
+Linked List,insert,50000,4,900
+Linked List,insert,50000,5,1700
+Linked List,insert,50000,6,2100
+Linked List,insert,50000,7,1100
+Linked List,insert,50000,8,700
+Linked List,insert,50000,9,500
+Linked List,insert,50000,10,2100
+Linked List,insert,50000,11,900
+Linked List,insert,50000,12,2000
+Linked List,insert,50000,13,800
+Linked List,insert,50000,14,1100
+Linked List,insert,50000,15,1100
+Linked List,insert,50000,16,1000
+Linked List,insert,50000,17,800
+Linked List,insert,50000,18,600
+Linked List,insert,50000,19,500
+Linked List,insert,50000,20,800
+Linked List,insert,50000,21,400
+Linked List,insert,50000,22,600
+Linked List,insert,50000,23,900
+Linked List,insert,50000,24,1400
+Linked List,insert,50000,25,600
+Linked List,insert,50000,26,700
+Linked List,insert,50000,27,1000
+Linked List,insert,50000,28,400
+Linked List,insert,50000,29,300
+Linked List,insert,50000,30,600
+Linked List,search,100,1,1600
+Linked List,search,100,2,1500
+Linked List,search,100,3,1500
+Linked List,search,100,4,1400
+Linked List,search,100,5,1400
+Linked List,search,100,6,1500
+Linked List,search,100,7,1400
+Linked List,search,100,8,1500
+Linked List,search,100,9,1400
+Linked List,search,100,10,1400
+Linked List,search,100,11,1500
+Linked List,search,100,12,1500
+Linked List,search,100,13,1400
+Linked List,search,100,14,1500
+Linked List,search,100,15,1500
+Linked List,search,100,16,1400
+Linked List,search,100,17,1500
+Linked List,search,100,18,1400
+Linked List,search,100,19,1500
+Linked List,search,100,20,1500
+Linked List,search,100,21,1400
+Linked List,search,100,22,1500
+Linked List,search,100,23,1400
+Linked List,search,100,24,1400
+Linked List,search,100,25,1500
+Linked List,search,100,26,1500
+Linked List,search,100,27,1400
+Linked List,search,100,28,1400
+Linked List,search,100,29,1500
+Linked List,search,100,30,1500
+Linked List,search,1000,1,13900
+Linked List,search,1000,2,13900
+Linked List,search,1000,3,13800
+Linked List,search,1000,4,13800
+Linked List,search,1000,5,13800
+Linked List,search,1000,6,13800
+Linked List,search,1000,7,13700
+Linked List,search,1000,8,13800
+Linked List,search,1000,9,13800
+Linked List,search,1000,10,13800
+Linked List,search,1000,11,13700
+Linked List,search,1000,12,13700
+Linked List,search,1000,13,13700
+Linked List,search,1000,14,13800
+Linked List,search,1000,15,13800
+Linked List,search,1000,16,13800
+Linked List,search,1000,17,17600
+Linked List,search,1000,18,13800
+Linked List,search,1000,19,13800
+Linked List,search,1000,20,13800
+Linked List,search,1000,21,13800
+Linked List,search,1000,22,13800
+Linked List,search,1000,23,13800
+Linked List,search,1000,24,13800
+Linked List,search,1000,25,13800
+Linked List,search,1000,26,13800
+Linked List,search,1000,27,13800
+Linked List,search,1000,28,13800
+Linked List,search,1000,29,13800
+Linked List,search,1000,30,13800
+Linked List,search,10000,1,137100
+Linked List,search,10000,2,134300
+Linked List,search,10000,3,133200
+Linked List,search,10000,4,131900
+Linked List,search,10000,5,131500
+Linked List,search,10000,6,132300
+Linked List,search,10000,7,131700
+Linked List,search,10000,8,132600
+Linked List,search,10000,9,133300
+Linked List,search,10000,10,145300
+Linked List,search,10000,11,154900
+Linked List,search,10000,12,136700
+Linked List,search,10000,13,136600
+Linked List,search,10000,14,136600
+Linked List,search,10000,15,136500
+Linked List,search,10000,16,135100
+Linked List,search,10000,17,135200
+Linked List,search,10000,18,135800
+Linked List,search,10000,19,136500
+Linked List,search,10000,20,136400
+Linked List,search,10000,21,251400
+Linked List,search,10000,22,139000
+Linked List,search,10000,23,137500
+Linked List,search,10000,24,138200
+Linked List,search,10000,25,137900
+Linked List,search,10000,26,136700
+Linked List,search,10000,27,136900
+Linked List,search,10000,28,137500
+Linked List,search,10000,29,138200
+Linked List,search,10000,30,146000
+Linked List,search,50000,1,678600
+Linked List,search,50000,2,717600
+Linked List,search,50000,3,714000
+Linked List,search,50000,4,787600
+Linked List,search,50000,5,696500
+Linked List,search,50000,6,832400
+Linked List,search,50000,7,683300
+Linked List,search,50000,8,707600
+Linked List,search,50000,9,670000
+Linked List,search,50000,10,848400
+Linked List,search,50000,11,698300
+Linked List,search,50000,12,962500
+Linked List,search,50000,13,824300
+Linked List,search,50000,14,807400
+Linked List,search,50000,15,767200
+Linked List,search,50000,16,992800
+Linked List,search,50000,17,676700
+Linked List,search,50000,18,1126400
+Linked List,search,50000,19,743300
+Linked List,search,50000,20,941700
+Linked List,search,50000,21,745600
+Linked List,search,50000,22,1058600
+Linked List,search,50000,23,710700
+Linked List,search,50000,24,1221200
+Linked List,search,50000,25,889100
+Linked List,search,50000,26,842300
+Linked List,search,50000,27,681500
+Linked List,search,50000,28,961600
+Linked List,search,50000,29,728600
+Linked List,search,50000,30,793500

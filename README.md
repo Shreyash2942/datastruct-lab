@@ -11,10 +11,9 @@ understand first in, first out (FIFO). Explore a **Linked List** to see how node
 connect values without contiguous storage. Import any of the three classes,
 experiment with their operations, and read the tests as examples of behavior.
 
-**Current milestone: Day 5 — complexity predictions.** Explore Stack, Queue,
-and Linked List through live diagrams, then compare the time and space growth
-of their operations in the Complexity Analyzer. The project has 99 passing
-tests. Measured benchmarks are the next milestone.
+**Current milestone: Day 6 — measured performance.** Explore live diagrams,
+compare complexity predictions, and run repeated benchmarks with downloadable
+CSV data, charts, and a report. The project has 128 passing tests.
 
 ## Features
 
@@ -29,10 +28,10 @@ Available now:
 - Complexity predictions for all 20 public operations, with explanations and
   an illustrative growth chart.
 
-Planned assignment features:
+- Repeated benchmarks for six operation types, raw and summary CSV exports,
+  environment metadata, runtime/growth charts, and a report bundle.
 
-- Repeated benchmarks, CSV results, and performance charts.
-- A one-page analysis and a 3–5 minute demonstration video.
+Next: a one-page analysis and a 3–5 minute demonstration video.
 
 See [requirements](docs/requirements.md) for operation contracts and acceptance
 criteria and [the assignment plan](docs/assignment_plan.md) for the schedule.
@@ -80,7 +79,7 @@ These commands use the virtual environment directly; activation is optional.
 The project has been tested on Windows with Python 3.14.4. The macOS/Linux
 commands are provided for those platforms but have not been tested there.
 
-The full dependency file includes libraries for the interface and planned
+The full dependency file includes libraries for the interface and
 charts. The three core data structure modules themselves use only Python's
 standard library.
 
@@ -121,8 +120,8 @@ shows **HEAD**, node links, and the final **None** reference. The **Values as
 text** panel provides the same contents in reading order. Large diagrams scroll.
 Invalid input and empty operations show a friendly message without changing data.
 
-State is temporary: a new or reloaded browser session starts fresh. The
-**Performance** page remains a labeled placeholder for Day 6's benchmarks.
+State is temporary: a new or reloaded browser session starts fresh. Benchmarks
+use separate fixtures and preserve the values in your live structures.
 
 ![Stack page with 30 at the top of a three-element stack](images/day4-stack.png)
 
@@ -306,7 +305,7 @@ Use the Streamlit lab or import the structures directly from Python.
 | Day 3 | Linked List and expanded tests | Complete |
 | Day 4 | Interactive Streamlit interface and diagrams | Complete |
 | Day 5 | Complexity analyzer | Complete |
-| Day 6 | Benchmarks, CSV results, and charts | Planned |
+| Day 6 | Benchmarks, CSV results, and charts | Complete |
 | Day 7 | Final analysis, demo video, and submission | Planned |
 
 ## Project Structure
@@ -323,7 +322,7 @@ datastruct-lab/
 │   │   ├── queue.py      # FIFO implementation
 │   │   └── linked_list.py # Node and singly linked list
 │   ├── analysis/         # Complexity rules and prediction API
-│   ├── benchmark/        # Performance testing (Day 6)
+│   ├── benchmark/        # Timing engine, CSV/chart/report generation
 │   └── visualization/    # HTML structure diagrams
 ├── tests/                # Core, diagram, and Streamlit interaction tests
 ├── docs/                 # Plan, requirements, test plan, milestone status
@@ -331,8 +330,6 @@ datastruct-lab/
 ├── data/                 # Measured benchmark CSV output
 └── images/               # Generated charts and screenshots
 ```
-
-Benchmarking modules will be added on Day 6.
 
 ## Testing
 
@@ -348,8 +345,8 @@ On macOS/Linux:
 .venv/bin/python -m pytest
 ```
 
-The current suite contains 99 passing tests: 23 core cases, 9 diagram/snapshot
-cases, 19 Streamlit interaction cases, and 48 complexity cases. To run one area,
+The current suite contains 128 passing tests: 23 core cases, 9 diagram/snapshot
+cases, 21 Streamlit interaction cases, 48 complexity cases, and 27 benchmark cases. To run one area,
 append a test file such as `tests/test_complexity.py`, `tests/test_visualizer.py`,
 or `tests/test_app.py` to the command.
 
@@ -364,14 +361,38 @@ and separate sessions. A real browser check supplements the automated suite.
 
 ## Performance Analysis
 
-Day 6 will measure stack push/search, queue enqueue/search, and linked-list
-insert/search at input sizes 100, 1,000, 10,000, and 50,000 with repeated trials.
-Results will go in `data/benchmark_results.csv`, charts in `images/`, and the
-interpretation in `reports/performance_report.md`.
+Open **Performance**, choose at least two input sizes, select 20–50 trials per
+case, and click **Run benchmarks**. Nothing runs automatically. Results show
+median nanoseconds, sample variability, and two charts. **Download CSV** saves
+the summary; **Download full report bundle** includes summary/raw CSVs,
+environment metadata, both PNGs, and a Markdown report. Results persist while
+you navigate; changed controls take effect only on the next run.
 
-Big-O predicts growth as input size increases; it does not predict exact runtime.
-No measured results or performance charts have been generated at the Day 5
-milestone. The analyzer's growth chart is a theoretical illustration.
+To regenerate the saved assignment artifacts from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.benchmark.performance_tester
+```
+
+On macOS/Linux, use `.venv/bin/python` with the same module command. Defaults
+are n = 100, 1,000, 10,000, 50,000; 30 timed trials and 3 untimed warmups for
+Stack push/search, Queue enqueue/search, and Linked List insert/search. Fixture
+setup, verification, and rendering are outside the timed region. Every call
+starts with a fresh n-element fixture; searches use a missing value.
+
+The CLI writes six files beneath the current directory. Use `--output-dir`
+to choose another folder; optional `--sizes`, `--trials`, and `--warmups` flags
+control the experiment. UI runs offer downloads without replacing saved files.
+
+- [Performance report and interpretation](reports/performance_report.md)
+- [24 measured summaries](data/benchmark_results.csv) and [720 raw samples](data/benchmark_trials.csv)
+- [Environment and method metadata](data/benchmark_metadata.json)
+- [Runtime chart](images/performance_chart.png) and [growth comparison](images/complexity_comparison.png)
+
+Big-O describes growth, not exact runtime. These single-call timings include
+clock overhead; medians and interquartile ranges describe this run, not universal
+speeds. Isolated Stack pushes do not establish amortized behavior. Read the
+report's limitations before comparing implementations.
 
 ## Troubleshooting
 
@@ -394,3 +415,4 @@ milestone. The analyzer's growth chart is a theoretical illustration.
 - [Day 3 implementation and verification](docs/day_3.md)
 - [Day 4 interface and verification](docs/day_4.md)
 - [Day 5 complexity analyzer](docs/day_5.md)
+- [Day 6 benchmarks and verification](docs/day_6.md)
