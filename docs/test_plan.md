@@ -65,5 +65,7 @@ charts, CSV/ZIP downloads, preserved Stack state, and a 390-pixel viewport.
 
 ## Day 7: submission checks
 
-Run the full pytest suite and manual UI checks. Reproduce charts from saved data,
-review the one-page report, and verify video duration and assignment coverage.
+Run the full pytest suite and real-browser UI checks. Reproduce charts from saved
+raw data, inspect the one-page PDF, verify documentation links, and check video
+duration, audio, captions, and assignment coverage. See [Day 7 evidence](day_7.md)
+for the completed checks and remaining course-portal upload.

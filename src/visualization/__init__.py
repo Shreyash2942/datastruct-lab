@@ -1,1 +1,1 @@
-"""Live structure diagrams; performance charts are planned for Day 6."""
+"""Live structure diagrams; benchmark charts are generated in src.benchmark."""

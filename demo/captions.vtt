@@ -1,0 +1,193 @@
+WEBVTT
+
+00:00:01.372 --> 00:00:06.838
+This is DataStruct Lab, a learning tool for C S C five oh six.
+
+00:00:06.838 --> 00:00:14.257
+The project connects Python implementations of stacks, queues, and linked lists with live diagrams, complexity explanations, and measured performance.
+
+00:00:14.257 --> 00:00:16.209
+This walkthrough uses computer-generated narration.
+
+00:00:16.209 --> 00:00:22.847
+We will compare ordering rules, try the operations, and see how theoretical growth relates to actual measurements.
+
+00:00:26.382 --> 00:00:28.836
+A stack is last in, first out.
+
+00:00:28.836 --> 00:00:30.940
+We push ten, twenty, and thirty.
+
+00:00:30.940 --> 00:00:33.745
+The newest value, thirty, appears at the top.
+
+00:00:33.745 --> 00:00:35.849
+Peek reads thirty without removing it.
+
+00:00:35.849 --> 00:00:38.654
+Pop removes thirty, leaving twenty at the top.
+
+00:00:38.654 --> 00:00:42.511
+Searching for ten finds the older value without changing the stack.
+
+00:00:42.511 --> 00:00:45.667
+This ordering is useful for undo history and backtracking.
+
+00:00:45.667 --> 00:00:51.979
+Push and pop on this Python list have constant amortized cost, although one resize can cost linear time.
+
+00:00:51.979 --> 00:00:53.381
+Reset clears the structure.
+
+00:00:53.381 --> 00:00:56.186
+Popping an empty stack shows a friendly message.
+
+00:01:06.389 --> 00:01:08.849
+A queue is first in, first out.
+
+00:01:08.849 --> 00:01:10.958
+We enqueue ten, twenty, and thirty.
+
+00:01:10.958 --> 00:01:14.825
+Ten is at the front, while thirty is at the rear.
+
+00:01:14.825 --> 00:01:16.933
+Peek reads ten without removing it.
+
+00:01:16.933 --> 00:01:19.394
+Dequeue removes ten because it arrived first.
+
+00:01:19.394 --> 00:01:22.206
+Searching for thirty leaves the remaining values unchanged.
+
+00:01:22.206 --> 00:01:25.720
+This matches printer jobs or requests served in arrival order.
+
+00:01:25.720 --> 00:01:30.289
+The deque implementation supports constant time endpoint operations without shifting every remaining value.
+
+00:01:30.289 --> 00:01:33.101
+A missing search may still examine all values.
+
+00:01:33.101 --> 00:01:34.859
+Reset empties only this queue.
+
+00:01:46.391 --> 00:01:51.148
+A singly linked list stores a value and a next reference in each node.
+
+00:01:51.148 --> 00:01:54.207
+We insert ten, twenty, and thirty at the head.
+
+00:01:54.207 --> 00:01:56.925
+The chain reads thirty, twenty, ten, then None.
+
+00:01:56.925 --> 00:01:59.983
+Traverse returns those values in head to tail order.
+
+00:01:59.983 --> 00:02:01.003
+Searching finds twenty.
+
+00:02:01.003 --> 00:02:03.382
+Deleting twenty connects thirty directly to ten.
+
+00:02:03.382 --> 00:02:08.139
+Relinking is constant work, but finding a node by value can take linear time.
+
+00:02:08.139 --> 00:02:10.178
+Searching for ninety-nine shows a miss.
+
+00:02:10.178 --> 00:02:11.877
+Head insertion is constant time.
+
+00:02:11.877 --> 00:02:13.576
+Reset removes the entire chain.
+
+00:02:26.397 --> 00:02:29.081
+The Complexity Analyzer covers all twenty public operations.
+
+00:02:29.081 --> 00:02:34.114
+For linked list search at ten thousand values, worst case time is O of n.
+
+00:02:34.114 --> 00:02:38.140
+Existing storage is also O of n, while auxiliary workspace is constant.
+
+00:02:38.140 --> 00:02:41.160
+Switch to head insertion: time becomes O of one.
+
+00:02:41.160 --> 00:02:45.522
+Traversal takes linear time and returns a new list using linear result space.
+
+00:02:45.522 --> 00:02:51.226
+For stack push, the analyzer distinguishes constant amortized cost from a worst single resize taking linear time.
+
+00:02:51.226 --> 00:02:55.253
+The chart illustrates growth at n, twice n, and four times n.
+
+00:02:55.253 --> 00:02:57.266
+These are predictions, not measured runtimes.
+
+00:03:11.402 --> 00:03:15.789
+The Performance page measures six operation types at each selected size.
+
+00:03:15.789 --> 00:03:22.967
+We use one hundred, one thousand, ten thousand, and fifty thousand elements, with thirty timed trials per case.
+
+00:03:22.967 --> 00:03:25.360
+Clicking Run benchmarks collects real measurements.
+
+00:03:25.360 --> 00:03:28.152
+Each call starts with a fresh fixture.
+
+00:03:28.152 --> 00:03:31.342
+Setup, verification, and charts stay outside the timer.
+
+00:03:31.342 --> 00:03:33.735
+Three untimed warmups precede the samples.
+
+00:03:33.735 --> 00:03:38.122
+Searches use an absent value, so they inspect the complete structure.
+
+00:03:38.122 --> 00:03:41.312
+The table reports median nanoseconds and sample variability.
+
+00:03:41.312 --> 00:03:44.104
+Twenty-four cases produce seven hundred twenty samples.
+
+00:03:44.104 --> 00:03:48.491
+Downloads include the summary, raw trials, environment metadata, charts, and report.
+
+00:03:48.491 --> 00:03:50.485
+Your live structures stay unchanged.
+
+00:04:01.410 --> 00:04:04.990
+The runtime chart separates single insertions from missing value searches.
+
+00:04:04.990 --> 00:04:07.854
+Search time grows as more values are examined.
+
+00:04:07.854 --> 00:04:10.718
+Shading shows the middle half of the samples.
+
+00:04:10.718 --> 00:04:14.656
+The comparison chart normalizes each series to its own smallest input.
+
+00:04:14.656 --> 00:04:17.162
+It compares growth rather than absolute speed.
+
+00:04:17.162 --> 00:04:20.384
+Clock overhead, allocation, and background activity affect short timings.
+
+00:04:20.384 --> 00:04:25.755
+These measurements do not prove Big O bounds or establish amortized cost from isolated pushes.
+
+00:04:31.410 --> 00:04:37.205
+Choose a structure according to access order, operation frequency, input size, and memory needs.
+
+00:04:37.205 --> 00:04:44.241
+The repository includes documented implementations, one hundred twenty-eight passing tests, a one-page analysis, and reproducible performance reports.
+
+00:04:44.241 --> 00:04:47.966
+No single data structure is best for every workload.
+
+00:04:47.966 --> 00:04:49.621
+Thank you for watching.

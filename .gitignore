@@ -24,5 +24,5 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# Graphify extraction cache (keep final reports and graphs)
-graphify-out/.*
+# Graphify artifacts and caches belong in sibling ../graphify-out/
+graphify-out/

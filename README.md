@@ -11,9 +11,9 @@ understand first in, first out (FIFO). Explore a **Linked List** to see how node
 connect values without contiguous storage. Import any of the three classes,
 experiment with their operations, and read the tests as examples of behavior.
 
-**Current milestone: Day 6 — measured performance.** Explore live diagrams,
-compare complexity predictions, and run repeated benchmarks with downloadable
-CSV data, charts, and a report. The project has 128 passing tests.
+**Day 7 — release preparation.** Explore live diagrams, compare complexity
+predictions, and run repeated benchmarks with downloadable CSV data, charts,
+and a report. The project has 128 passing tests.
 
 ## Features
 
@@ -31,7 +31,7 @@ Available now:
 - Repeated benchmarks for six operation types, raw and summary CSV exports,
   environment metadata, runtime/growth charts, and a report bundle.
 
-Next: a one-page analysis and a 3–5 minute demonstration video.
+- A one-page analysis and a recorded walkthrough with computer-generated narration.
 
 See [requirements](docs/requirements.md) for operation contracts and acceptance
 criteria and [the assignment plan](docs/assignment_plan.md) for the schedule.
@@ -306,7 +306,7 @@ Use the Streamlit lab or import the structures directly from Python.
 | Day 4 | Interactive Streamlit interface and diagrams | Complete |
 | Day 5 | Complexity analyzer | Complete |
 | Day 6 | Benchmarks, CSV results, and charts | Complete |
-| Day 7 | Final analysis, demo video, and submission | Planned |
+| Day 7 | Final analysis, documentation, demo video, and release | Materials prepared; title-page due date pending |
 
 ## Project Structure
 
@@ -326,6 +326,7 @@ datastruct-lab/
 │   └── visualization/    # HTML structure diagrams
 ├── tests/                # Core, diagram, and Streamlit interaction tests
 ├── docs/                 # Plan, requirements, test plan, milestone status
+├── demo/                 # Narrated walkthrough, transcript, captions, demo results
 ├── reports/              # Performance report and one-page analysis
 ├── data/                 # Measured benchmark CSV output
 └── images/               # Generated charts and screenshots
@@ -405,6 +406,57 @@ report's limitations before comparing implementations.
 - **Port 8501 is in use:** append `--server.port 8502` to the Streamlit launch
   command and use the new URL it prints.
 
+## Reports and Demonstration
+
+- [APA-style Word report](reports/data_structure_analysis_APA.docx): a title page,
+  one page of analysis, and references. The due-date field must be completed
+  before submission.
+- [One-page analysis (PDF)](reports/data_structure_analysis.pdf) and
+  [expanded Markdown](reports/data_structure_analysis.md). These are the original
+  analysis versions; use the Word file for the APA-formatted submission.
+- [Performance report](reports/performance_report.md), backed by raw trials
+  and metadata in `data/`.
+- [Recorded app walkthrough (4:51 MP4)](demo/datastruct-lab-demo.mp4), with a visible
+  computer-generated narration label and Microsoft Zira's synthesized voice.
+- [Narration transcript](demo/transcript.md), [WebVTT captions](demo/captions.vtt),
+  and [recording guide](docs/demo_script.md).
+- [The benchmark bundle downloaded during the video](demo/benchmark_report.zip).
+
+Download the MP4 to play it locally if GitHub does not preview it. The walkthrough
+shows actual app interactions and a new benchmark run. Its timings differ from
+the earlier CLI run saved in `data/`; each report identifies its own run and
+environment. The analysis PDF is one US Letter page. Check the instructor's
+required upload format when submitting the files.
+
+The planned `v1.0-assignment` Git tag will preserve the final release after the
+title-page due date is supplied. After that tag is published, inspect it with:
+
+```bash
+git checkout v1.0-assignment
+```
+
+This checks out the tagged snapshot. Use `git switch main` to return to ongoing
+development. Pushing this tagged snapshot to GitHub does not upload the assignment
+to the course portal.
+
+## Screenshots and Charts
+
+The [Stack screenshot](images/day4-stack.png) above shows the live interface.
+These charts come from the recorded CLI experiment:
+
+![Median runtime and interquartile ranges by input size](images/performance_chart.png)
+
+![Predicted and measured growth normalized to the smallest input](images/complexity_comparison.png)
+
+## Future Development
+
+- Add trees and hash tables to compare lookup and ordering trade-offs.
+- Add step-by-step animations for node links and individual search comparisons.
+- Extend experiments to deletion, successful searches, and mixed workloads.
+- Measure long insertion sequences and randomized case orders to study
+  amortized cost and reduce ordering effects.
+- Compare memory use and additional Python/runtime environments.
+
 ## Further Reading
 
 - [Operation contracts and assignment requirements](docs/requirements.md)
@@ -416,3 +468,4 @@ report's limitations before comparing implementations.
 - [Day 4 interface and verification](docs/day_4.md)
 - [Day 5 complexity analyzer](docs/day_5.md)
 - [Day 6 benchmarks and verification](docs/day_6.md)
+- [Day 7 release verification and submission checklist](docs/day_7.md)

@@ -251,7 +251,7 @@ def main() -> None:
         st.write("Stack, Queue, and singly Linked List operations, diagrams, and real-world use cases. All three structures keep independent state while you navigate.")
         st.write("The Complexity Analyzer explains time and space bounds for every public operation, with an illustrative growth comparison.")
         st.write("The Performance page measures repeated operations and exports CSV data, charts, and an analysis report.")
-        st.caption("Built with Python, Streamlit, and Matplotlib. Final submission documentation and the demo are the next milestone.")
+        st.caption("Built with Python, Streamlit, and Matplotlib. See the README for setup, reports, tests, and the demonstration guide.")
 
 
 if __name__ == "__main__":
