@@ -1,67 +1,44 @@
-# datastruct-lab — Data Structure Learning Tool
+# DataStruct Lab
 
-## Overview
+An interactive Python lab for learning **stacks, queues, and singly linked lists**.
+Add, find, and remove values, watch the diagrams change, explore Big-O estimates,
+and compare predictions with measured runtimes.
 
-Learn how data structures store, find, and remove values through small Python
-examples. `datastruct-lab` is for students and anyone practicing data structure
-fundamentals. It began as a project for CSC506 Design and Analysis of Algorithms.
+Built by **Shreyashkumar Patel** for **CSC506: Design and Analysis of Algorithms**
+at Colorado State University Global.
 
-Start with a **Stack** to understand last in, first out (LIFO), or a **Queue** to
-understand first in, first out (FIFO). Explore a **Linked List** to see how nodes
-connect values without contiguous storage. Import any of the three classes,
-experiment with their operations, and read the tests as examples of behavior.
+[Quick start](#quick-start) · [Using the app](#using-the-app) ·
+[Python examples](#python-examples) · [Performance](#performance) ·
+[Reports and demo](#reports-and-demo) · [Tests](#tests)
 
-**Day 7 — release preparation.** Explore live diagrams, compare complexity
-predictions, and run repeated benchmarks with downloadable CSV data, charts,
-and a report. The project has 128 passing tests.
+## What you can explore
 
-## Features
+- **Three working structures:** a Python-list-backed Stack, a deque-backed Queue,
+  and a custom singly linked list with explicit nodes.
+- **Interactive diagrams:** labeled values and links, operation feedback,
+  independent session state, and Reset for each structure.
+- **Complexity predictions:** time and space explanations for all 20 public
+  operations, including best-case, worst-case, and amortized bounds.
+- **Performance experiments:** repeated measurements, CSV downloads, two charts,
+  and a downloadable report bundle.
+- **Supporting material:** implementation documentation, selected tests, an
+  APA-style report, and a narrated app walkthrough.
 
-Available now:
+![Stack interface showing three values with 30 at the top](images/day4-stack.png)
 
-- Stack: `push`, `pop`, `peek`, `search`, `is_empty`, and `size`.
-- Queue: `enqueue`, `dequeue`, `peek`, `search`, `is_empty`, and `size`.
-- Linked List: `insert`, `delete`, `search`, `traverse`, `is_empty`, and `size`.
-- Streamlit navigation, live diagrams, independent session state, and Reset.
-- Integer input validation, operation feedback, and real-world use cases.
-- Clear empty-operation errors, type hints, complexity docstrings, and tests.
-- Complexity predictions for all 20 public operations, with explanations and
-  an illustrative growth chart.
+## Quick start
 
-- Repeated benchmarks for six operation types, raw and summary CSV exports,
-  environment metadata, runtime/growth charts, and a report bundle.
+Install Git and Python 3.14. The project was verified on **Windows 11 with
+CPython 3.14.4**. Dependencies are pinned in [requirements.txt](requirements.txt).
 
-- A three-page analysis, documented implementations, selected test examples,
-  and a recorded walkthrough with computer-generated narration.
-
-See [requirements](docs/requirements.md) for operation contracts and acceptance
-criteria and [the assignment plan](docs/assignment_plan.md) for the schedule.
-
-## Technology
-
-- Python; the Day 1 environment uses Python 3.14.
-- Streamlit for the interface.
-- pytest for automated tests.
-- Matplotlib for charts and pandas for result tables.
-- `time.perf_counter_ns()` for runtime measurements.
-- Git and GitHub for version control.
-
-## Installation
-
-### Prerequisites
-
-- Git to clone the repository.
-- Python 3.14, the version used to verify this project. Other Python versions
-  have not been verified with the pinned dependencies.
-
-### Windows (PowerShell)
+### Windows — PowerShell
 
 ```powershell
 git clone https://github.com/Shreyash2942/datastruct-lab.git
 cd datastruct-lab
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
 ### macOS / Linux
@@ -73,77 +50,115 @@ git clone https://github.com/Shreyash2942/datastruct-lab.git
 cd datastruct-lab
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python -m pip check
-```
-
-These commands use the virtual environment directly; activation is optional.
-The project has been tested on Windows with Python 3.14.4. The macOS/Linux
-commands are provided for those platforms but have not been tested there.
-
-The full dependency file includes libraries for the interface and
-charts. The three core data structure modules themselves use only Python's
-standard library.
-
-## Usage
-
-### Launch the interactive lab
-
-From the repository root, run:
-
-```powershell
-# Windows
-.\.venv\Scripts\python.exe -m streamlit run app.py
-```
-
-```bash
-# macOS / Linux
 .venv/bin/python -m streamlit run app.py
 ```
 
-Open the local URL printed by Streamlit (normally `http://localhost:8501`).
-Press `Ctrl+C` in the terminal to stop the server.
+The macOS/Linux commands have not been tested on those platforms. These commands
+use the virtual environment directly; activation is optional.
 
-No email or Streamlit account is needed to run the local lab. Project settings
-disable Streamlit's first-run email prompt and usage statistics. Launch from
-the repository root so Streamlit loads these settings.
+Open the local URL printed in the terminal, usually `http://localhost:8501`.
+Press `Ctrl+C` to stop the server. **No email or Streamlit account is required.**
+Launch from the repository root so the project settings disable the email
+prompt and usage statistics.
 
-1. Choose **Stack**, **Queue**, or **Linked List** in the sidebar.
-2. Enter a whole number such as `10` or `-5` and click **Push**, **Enqueue**, or
-   **Insert**. Duplicates are allowed.
-3. Try removal, search, and peek or traversal. Watch the diagram and element
-   count update. Linked-list **Delete** uses the value field and removes only
-   the first matching node from the head.
-4. Switch pages freely: each structure keeps independent state in this session.
-5. Use **Reset** to empty only the selected structure.
+## Using the app
 
-Stack shows **TOP** vertically; Queue shows **FRONT** and **REAR**; Linked List
-shows **HEAD**, node links, and the final **None** reference. The **Values as
-text** panel provides the same contents in reading order. Large diagrams scroll.
-Invalid input and empty operations show a friendly message without changing data.
+### Try the structures
 
-State is temporary: a new or reloaded browser session starts fresh. Benchmarks
-use separate fixtures and preserve the values in your live structures.
+1. Select **Stack**, **Queue**, or **Linked List** in the sidebar.
+2. Enter an integer, such as `10` or `-5`, and click **Push**, **Enqueue**, or **Insert**.
+3. Add more values, then try removal, search, peek, or traversal.
+4. Watch the diagram and element count update. **Values as text** shows the same contents.
+5. Switch pages to compare structures, or **Reset** the selected one.
 
-![Stack page with 30 at the top of a three-element stack](images/day4-stack.png)
+The Stack labels its **TOP**; the Queue labels **FRONT** and **REAR**; the Linked
+List shows **HEAD**, next links, and the final **None** reference. Linked-list
+insertion adds at the head; deletion removes the first matching value from the
+head. Duplicates are allowed. Invalid input and empty operations show friendly
+feedback without changing the contents.
 
-### Explore complexity
+Each structure keeps independent state while you navigate. A new or reloaded
+browser session starts fresh. Benchmarks use separate fixtures and preserve
+your live values.
 
-Open **Complexity Analyzer** and choose a **Data structure**, **Operation**, and
-positive **Input size (n)**. Results update immediately. Try **Linked List →
-Search → 10,000** to see O(n) search time, O(n) structure storage, and O(1)
-auxiliary space. Then choose **Insert (at head)** to compare its O(1) time.
+### Explore Big-O
 
-- Time bounds include best-case and worst single-operation behavior. Stack
-  push/pop explicitly distinguish O(1) amortized cost from O(n) resizing.
-- Space separates the existing structure, temporary auxiliary work, and the
-  returned result. Traversal and snapshots produce O(n) result containers.
-- The growth chart compares n, 2n, and 4n, normalized to 1 at the selected n.
-  Its ratios illustrate a constant or linear model; they are not measured
-  runtimes, exact instruction counts, or absolute speed comparisons.
-- The UI accepts sizes from 1 through 1,000,000,000. It does not allocate those
-  elements or change the contents of your live structures.
+Open **Complexity Analyzer** and choose a structure, operation, and positive
+input size. Try **Linked List → Search → 10,000**: the tool shows O(n)
+worst-case time, O(n) structure storage, and O(1) auxiliary space. Compare this
+with **Insert (at head)**, which takes O(1) time.
 
-The same analyzer is available directly from Python:
+The predictor uses documented rules for the implemented methods. It separates
+existing storage, auxiliary work, and returned-result space. Its growth chart
+compares n, 2n, and 4n, normalized to 1 at n. These are illustrative growth
+ratios, not measured runtimes. Changing n does not allocate a structure or
+change the operation's asymptotic class.
+
+## Python examples
+
+The core structures use only Python's standard library and can be imported
+independently of Streamlit. Save an example as `example.py` in the repository
+root and run `.\.venv\Scripts\python.exe example.py` on Windows, or
+`.venv/bin/python example.py` on macOS/Linux.
+
+```python
+from src.structures import LinkedList, Queue, Stack
+
+# Stack: last in, first out — useful for undo history.
+stack = Stack[int]()
+stack.push(10)
+stack.push(20)
+print(stack.peek())       # 20, without removal
+print(stack.pop())        # 20
+print(stack.to_list())    # [10], top to bottom
+
+# Queue: first in, first out — useful for jobs in arrival order.
+queue = Queue[int]()
+queue.enqueue(10)
+queue.enqueue(20)
+print(queue.dequeue())    # 10
+print(queue.to_list())    # [20], front to rear
+
+# Linked list: nodes connected from head to tail.
+linked = LinkedList[int]()
+for value in [10, 20, 10]:
+    linked.insert(value)
+print(linked.traverse())  # [10, 20, 10]
+print(linked.delete(10))  # True: remove only the first match
+print(linked.traverse())  # [20, 10]
+print(linked.search(99))  # False
+```
+
+All three support `search(value)`, `size()`, and `is_empty()`. Core values need
+not be integers or hashable; the app restricts input to integers. Snapshots are
+shallow copies: editing the returned container leaves the structure unchanged,
+while mutable values remain shared.
+
+Stack/Queue removal and peek raise `IndexError` when empty. Check `is_empty()`
+first or catch the exception. Empty linked-list traversal returns `[]`;
+missing searches and linked-list deletions return `False`.
+
+### Operation reference
+
+Here, n is the number of stored values. Search and deletion bounds are worst-case
+and assume constant-cost equality comparisons.
+
+| Action | Stack | Queue | Linked List | Time |
+| --- | --- | --- | --- | --- |
+| Add | `push(value)` | `enqueue(value)` | `insert(value)` at head | O(1) amortized for Stack; O(1) for others |
+| Remove | `pop()` | `dequeue()` | `delete(value)` | O(1) amortized for Stack; O(1) for Queue; O(n) for Linked List |
+| Peek | `peek()` | `peek()` | — | O(1) |
+| Search | `search(value)` | `search(value)` | `search(value)` | O(n) |
+| Count | `size()` | `size()` | `size()` | O(1) |
+| Check empty | `is_empty()` | `is_empty()` | `is_empty()` | O(1) |
+| Snapshot | `to_list()` | `to_list()` | `traverse()` | O(n) time and result space |
+
+Each structure uses O(n) storage. A single Stack push/pop can take O(n) when
+the underlying list resizes; its cost over a sequence is O(1) amortized.
+The [implementation guide](docs/implementation_guide.md) explains algorithms,
+return values, errors, and space bounds for every public method.
+
+The predictor is also available through Python:
 
 ```python
 from src.analysis import analyze_complexity
@@ -155,327 +170,142 @@ print(prediction.rule.auxiliary_space)  # O(1)
 print(prediction.growth_points)        # ((10000, 1), (20000, 2), (40000, 4))
 ```
 
-Use `supported_structures()` and `supported_operations(structure)` from
-`src.analysis` to list valid names. The API rejects unknown combinations and
-nonpositive/noninteger sizes with `ValueError`, including booleans.
-See [Day 5 notes](docs/day_5.md) for assumptions and verification.
+`supported_structures()` and `supported_operations(structure)` in `src.analysis`
+list valid choices. Invalid combinations and nonpositive or noninteger sizes
+raise `ValueError`; booleans are rejected too.
 
-### Start a Python session
+## Performance
 
-Keep your terminal in the cloned `datastruct-lab` folder and start Python:
+In **Performance**, choose at least two sizes and 20–50 trials per case, then
+click **Run benchmarks**. Results include median runtimes, variability, and
+measured-versus-predicted growth. **Download CSV** saves the summary;
+**Download full report bundle** includes raw and summary CSVs, environment
+metadata, both charts, and a Markdown report.
+
+To run a new experiment and save its output outside the repository:
 
 ```powershell
-# Windows
-.\.venv\Scripts\python.exe
+.\.venv\Scripts\python.exe -m src.benchmark.performance_tester --output-dir ..\benchmark-repeat
 ```
 
-```bash
-# macOS / Linux
-.venv/bin/python
-```
+On macOS/Linux, use `.venv/bin/python` and `--output-dir ../benchmark-repeat`.
+Optional `--sizes`, `--trials`, and `--warmups` flags control the experiment.
+Omitting `--output-dir` writes to the current directory and replaces the saved
+benchmark artifacts.
 
-At the Python prompt, paste any example below. Type `exit()` to return to
-your terminal. You can also save an example as a `.py` file in the repository
-root and run it with the same virtual-environment Python command.
+The saved experiment used:
 
-### Stack: last in, first out
+| Setting | Value |
+| --- | --- |
+| Operations | Stack push/search, Queue enqueue/search, Linked List insert/search |
+| Input sizes | 100; 1,000; 10,000; 50,000 |
+| Repetitions | 30 timed trials and 3 untimed warmups per case |
+| Timer | `time.perf_counter_ns()` |
+| Outputs | 24 summaries and 720 raw samples |
+| Runtime units | Nanoseconds in CSV; microseconds in the runtime chart |
 
-A stack removes the most recently added value first. Think of an undo history:
-the latest action is the first one you undo.
+Every timed call starts with a fresh n-element fixture. Searches use a missing
+value. Setup, verification, and chart rendering are outside the timed region.
+Big-O describes growth, not exact speed: clock overhead and allocation matter
+for these short measurements. Isolated Stack pushes do not establish amortized
+behavior. See the [performance report](reports/performance_report.md) for
+results and limitations.
 
-```python
-from src.structures import Stack
+![Median runtime by input size, with interquartile ranges](images/performance_chart.png)
 
-stack = Stack[int]()
-stack.push(10)
-stack.push(20)
-print(stack.peek())       # 20: look at the top without removing it
-print(stack.pop())        # 20: remove the most recent value
-print(stack.search(10))   # True: 10 is still present
-print(stack.size())       # 1
-print(stack.is_empty())   # False
-```
+[Growth comparison chart](images/complexity_comparison.png) ·
+[Summary CSV](data/benchmark_results.csv) · [Raw trials](data/benchmark_trials.csv) ·
+[Run metadata](data/benchmark_metadata.json)
 
-### Queue: first in, first out
+## Reports and demo
 
-A queue removes the oldest value first. Think of a printer processing jobs in
-the order they arrive.
+| Material | What it contains |
+| --- | --- |
+| [APA Word report](reports/data_structure_analysis_APA.docx) | Nine pages: title, three analysis pages, references, selected tests, performance comparison, and two charts |
+| [Analysis PDF](reports/data_structure_analysis.pdf) | Three analysis pages plus references; supporting appendices are in the Word report |
+| [Markdown analysis](reports/data_structure_analysis.md) | Structure importance, implementation, and selection criteria |
+| [Implementation guide](docs/implementation_guide.md) | All 20 methods, runnable examples, and how the app and analysis tools work |
+| [Selected test cases](docs/selected_test_cases.md) | Three existing cases per structure, with inputs, expected outcomes, and commands |
+| [Performance report](reports/performance_report.md) | Measured comparisons, methodology, charts, and limitations |
+| [App walkthrough — 4:51 MP4](demo/datastruct-lab-demo.mp4) | Actual app interactions with clearly labeled computer-generated narration |
 
-```python
-from src.structures import Queue
+The walkthrough includes [a transcript](demo/transcript.md),
+[WebVTT captions](demo/captions.vtt), and
+[the benchmark bundle downloaded during recording](demo/benchmark_report.zip).
+Download the MP4 if GitHub does not preview it. Its benchmark is a separate run
+from the saved CLI experiment, so the measured times differ.
 
-queue = Queue[int]()
-queue.enqueue(10)
-queue.enqueue(20)
-print(queue.peek())        # 10: look at the front without removing it
-print(queue.dequeue())     # 10: remove the oldest value
-print(queue.search(20))    # True: 20 is still waiting
-print(queue.size())        # 1
-print(queue.is_empty())    # False
-```
+**Submission status:** materials are prepared; the Word title-page due date
+still needs to be entered. The planned `v1.0-assignment` release tag has not
+been created. See the [submission checklist](docs/day_7.md) before uploading
+the required files to the course portal.
 
-### Linked List: nodes connected from head to tail
+## Tests
 
-Each node holds a value and a reference to the next node. Insertion at the head
-does not require shifting existing values. Finding or deleting a value may
-require walking through the list.
-
-```python
-from src.structures import LinkedList
-
-linked = LinkedList[int]()
-linked.insert(10)
-linked.insert(20)
-linked.insert(10)
-print(linked.traverse())   # [10, 20, 10]: newest value is at the head
-print(linked.search(20))   # True
-print(linked.delete(10))   # True: remove only the first match from the head
-print(linked.traverse())   # [20, 10]: the other 10 remains
-print(linked.delete(99))   # False: missing values leave the list unchanged
-print(linked.size())       # 2
-print(linked.is_empty())   # False
-```
-
-`traverse()` returns a new Python list. Changing its entries does not change
-the node chain. It is a shallow copy, so mutable values themselves are shared.
-
-### Handle an empty structure
-
-Stack and Queue removal and peek raise `IndexError` when there are no values.
-Catch the exception if your program needs to display a message and continue:
-
-```python
-from src.structures import Stack
-
-empty_stack = Stack[int]()
-try:
-    empty_stack.pop()
-except IndexError as error:
-    print(error)  # Cannot pop from an empty stack.
-```
-
-For an empty Linked List, `traverse()` returns `[]`, and `search()` and `delete()`
-return `False`.
-
-All three structures allow duplicate values. Search compares values for equality,
-returns a boolean, and preserves the contents. Type hints such as `Stack[int]`
-help editors and type checkers; they do not enforce value types at runtime.
-
-### Operation reference
-
-| Action | Stack | Queue | Return value | Time |
-| --- | --- | --- | --- | --- |
-| Add a value | `push(value)` | `enqueue(value)` | `None` | O(1) amortized for Stack; O(1) for Queue |
-| Remove next value | `pop()` | `dequeue()` | Removed value | O(1) amortized for Stack; O(1) for Queue |
-| View next value | `peek()` | `peek()` | Next value | O(1) |
-| Find a value | `search(value)` | `search(value)` | `True` or `False` | O(n) worst case |
-| Check emptiness | `is_empty()` | `is_empty()` | `True` or `False` | O(1) |
-| Count values | `size()` | `size()` | Integer count | O(1) |
-
-Here, n is the number of stored values. Stack uses a Python list; occasional
-resizing can make a single push/pop O(n), while the average cost over a sequence
-is O(1). Queue uses `collections.deque`. Both structures use O(n) storage.
-Search costs assume constant-time equality comparisons.
-
-For read-only display, `Stack.to_list()` returns a shallow snapshot from top to
-bottom and `Queue.to_list()` from front to rear. Both take O(n) time and result
-space; editing the returned container does not change the structure.
-
-| Linked List operation | Return value | Time |
-| --- | --- | --- |
-| `insert(value)` | `None`; adds at the head | O(1) |
-| `delete(value)` | `True` if the first match was removed; otherwise `False` | O(n) worst case |
-| `search(value)` | `True` or `False` | O(n) worst case |
-| `traverse()` | New list of values from head to tail | O(n) |
-| `is_empty()` | `True` or `False` | O(1) |
-| `size()` | Maintained integer count | O(1) |
-
-Linked List uses O(n) storage; traversal also allocates O(n) space for its result.
-Deletion and search use O(1) auxiliary space and assume constant-time equality.
-`Node` is exported for studying its `data` and `next` attributes; normal usage
-goes through `LinkedList` methods.
-
-## Interface and Roadmap
-
-Use the Streamlit lab or import the structures directly from Python.
-
-| Milestone | Work | Status |
-| --- | --- | --- |
-| Day 1 | Project setup and requirements | Complete |
-| Day 2 | Stack, Queue, initial tests | Complete |
-| Day 3 | Linked List and expanded tests | Complete |
-| Day 4 | Interactive Streamlit interface and diagrams | Complete |
-| Day 5 | Complexity analyzer | Complete |
-| Day 6 | Benchmarks, CSV results, and charts | Complete |
-| Day 7 | Final analysis, documentation, demo video, and release | Materials prepared; title-page due date pending |
-
-## Project Structure
-
-```text
-datastruct-lab/
-├── app.py                # Streamlit entry point
-├── .streamlit/config.toml # Theme and local app settings
-├── README.md
-├── requirements.txt
-├── src/
-│   ├── structures/
-│   │   ├── stack.py      # LIFO implementation
-│   │   ├── queue.py      # FIFO implementation
-│   │   └── linked_list.py # Node and singly linked list
-│   ├── analysis/         # Complexity rules and prediction API
-│   ├── benchmark/        # Timing engine, CSV/chart/report generation
-│   └── visualization/    # HTML structure diagrams
-├── tests/                # Core, diagram, and Streamlit interaction tests
-├── docs/                 # Plan, requirements, test plan, milestone status
-├── demo/                 # Narrated walkthrough, transcript, captions, demo results
-├── reports/              # Performance report and APA analysis with appendices
-├── data/                 # Measured benchmark CSV output
-└── images/               # Generated charts and screenshots
-```
-
-## Testing
-
-Run the current suite from the repository root:
+Run from the repository root:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m pip check
 ```
 
-On macOS/Linux:
+On macOS/Linux, replace `.\.venv\Scripts\python.exe` with `.venv/bin/python`.
+To run one area, append a file such as `tests/test_linked_list.py` or
+`tests/test_complexity.py` to the pytest command.
 
-```bash
-.venv/bin/python -m pytest
+The latest full run passed **128 tests**: 23 core structure cases, 9 diagram
+and snapshot cases, 21 Streamlit interaction cases, 48 complexity cases, and
+27 benchmark cases. They cover ordering, empty operations, duplicates, node
+relinking, independent state, predictions, timing boundaries, and exports.
+
+The report highlights only [nine selected tests](docs/selected_test_cases.md);
+the full suite remains in the project. See the [test plan](docs/test_plan.md)
+and [verification notes](docs/day_7.md) for coverage and browser checks.
+
+## Project layout
+
+```text
+datastruct-lab/
+├── app.py                 # Streamlit entry point
+├── .streamlit/config.toml # Theme, email prompt, and usage-statistics settings
+├── requirements.txt       # Pinned dependencies
+├── src/
+│   ├── structures/        # Stack, Queue, Node, and LinkedList
+│   ├── analysis/          # Complexity rules and prediction API
+│   ├── benchmark/         # Timing, CSVs, charts, and report generation
+│   └── visualization/     # Structure diagrams
+├── tests/                 # Automated tests
+├── docs/                  # Implementation guide, requirements, and test notes
+├── reports/               # APA report, analysis, and performance report
+├── data/                  # Saved benchmark summaries, raw trials, and metadata
+├── images/                # App screenshot and performance charts
+└── demo/                  # Walkthrough, transcript, captions, and demo results
 ```
 
-The [selected test cases](docs/selected_test_cases.md) highlight three existing
-checks per structure, with inputs, expected outcomes, and commands to run them.
-The full suite is retained.
-
-The current suite contains 128 passing tests: 23 core cases, 9 diagram/snapshot
-cases, 21 Streamlit interaction cases, 48 complexity cases, and 27 benchmark cases. To run one area,
-append a test file such as `tests/test_complexity.py`, `tests/test_visualizer.py`,
-or `tests/test_app.py` to the command.
-
-The suite covers ordering, duplicates, empty-operation errors, successful
-and missing searches, non-mutating reads, instance independence, non-hashable
-values, and repeated operations. Linked-list tests also cover deletion at each
-position, first-match deletion, independent traversal results, a deterministic
-mixed-operation sequence, and a 3,000-node chain. The [test plan](docs/test_plan.md)
-describes the checks and later milestones. Streamlit tests cover all seven
-pages, every control, input validation, state persistence, independent resets,
-and separate sessions. A real browser check supplements the automated suite.
-
-## Performance Analysis
-
-Open **Performance**, choose at least two input sizes, select 20–50 trials per
-case, and click **Run benchmarks**. Nothing runs automatically. Results show
-median nanoseconds, sample variability, and two charts. **Download CSV** saves
-the summary; **Download full report bundle** includes summary/raw CSVs,
-environment metadata, both PNGs, and a Markdown report. Results persist while
-you navigate; changed controls take effect only on the next run.
-
-To regenerate the saved assignment artifacts from the repository root:
-
-```powershell
-.\.venv\Scripts\python.exe -m src.benchmark.performance_tester
-```
-
-On macOS/Linux, use `.venv/bin/python` with the same module command. Defaults
-are n = 100, 1,000, 10,000, 50,000; 30 timed trials and 3 untimed warmups for
-Stack push/search, Queue enqueue/search, and Linked List insert/search. Fixture
-setup, verification, and rendering are outside the timed region. Every call
-starts with a fresh n-element fixture; searches use a missing value.
-
-The CLI writes six files beneath the current directory. Use `--output-dir`
-to choose another folder; optional `--sizes`, `--trials`, and `--warmups` flags
-control the experiment. UI runs offer downloads without replacing saved files.
-
-- [Performance report and interpretation](reports/performance_report.md)
-- [24 measured summaries](data/benchmark_results.csv) and [720 raw samples](data/benchmark_trials.csv)
-- [Environment and method metadata](data/benchmark_metadata.json)
-- [Runtime chart](images/performance_chart.png) and [growth comparison](images/complexity_comparison.png)
-
-Big-O describes growth, not exact runtime. These single-call timings include
-clock overhead; medians and interquartile ranges describe this run, not universal
-speeds. Isolated Stack pushes do not establish amortized behavior. Read the
-report's limitations before comparing implementations.
+The interface uses Streamlit; charts use Matplotlib; result tables use pandas;
+tests use pytest. Core structure logic is independent of the interface and
+benchmark packages.
 
 ## Troubleshooting
 
-- **`No module named 'src'`:** run Python from the repository root, the folder
-  containing `README.md` and `src/`.
-- **`No module named 'pytest'`:** install `requirements.txt` and run tests using
-  the virtual-environment Python commands above.
-- **Empty Stack or Queue error:** add a value first, check `is_empty()`, or catch
-  `IndexError` as shown in the example.
-- **Port 8501 is in use:** append `--server.port 8502` to the Streamlit launch
-  command and use the new URL it prints.
+| Problem | What to do |
+| --- | --- |
+| `No module named 'src'` | Run from the repository root, alongside `app.py` and `src/`. |
+| A dependency cannot be imported | Install `requirements.txt` and use the virtual-environment Python shown above. |
+| Port 8501 is already in use | Add `--server.port 8502` to the Streamlit command and open the printed URL. |
+| Empty Stack/Queue removal or peek | Add a value first, check `is_empty()`, or catch `IndexError` in Python. |
+| Values disappear after reloading | Structure state is temporary and belongs to the browser session. |
 
-## Reports and Demonstration
+## Further development
 
-- [APA-style Word report](reports/data_structure_analysis_APA.docx): nine pages,
-  including a title page, three analysis pages, references, and appendices with
-  nine selected tests, a performance table, and two measured-data charts.
-  Complete the title-page due date before submission.
-- [Analysis PDF](reports/data_structure_analysis.pdf): three analysis pages and
-  a reference page. Appendices referenced in this companion PDF are in the Word
-  report. [Markdown analysis](reports/data_structure_analysis.md) is also available.
-- [Implementation guide](docs/implementation_guide.md): internal algorithms,
-  all 20 public operations, runnable examples, and explanations of the interface,
-  complexity predictor, and benchmark engine.
-- [Selected test cases](docs/selected_test_cases.md): three examples per structure.
-- [Performance report](reports/performance_report.md), backed by raw trials
-  and metadata in `data/`.
-- [Recorded app walkthrough (4:51 MP4)](demo/datastruct-lab-demo.mp4), with a visible
-  computer-generated narration label and Microsoft Zira's synthesized voice.
-- [Narration transcript](demo/transcript.md), [WebVTT captions](demo/captions.vtt),
-  and [recording guide](docs/demo_script.md).
-- [The benchmark bundle downloaded during the video](demo/benchmark_report.zip).
+- Add trees and hash tables for more lookup and ordering comparisons.
+- Animate individual comparisons and node-link changes.
+- Benchmark deletion, successful searches, and mixed workloads.
+- Measure long insertion sequences, randomized case order, and memory use.
+- Verify additional operating systems and Python versions.
 
-Download the MP4 to play it locally if GitHub does not preview it. The walkthrough
-shows actual app interactions and a new benchmark run. Its timings differ from
-the earlier CLI run saved in `data/`; each report identifies its own run and
-environment. See the [submission checklist](docs/day_7.md) for deliverable
-locations and verification. Check the instructor's required upload format.
-
-The planned `v1.0-assignment` Git tag will preserve the final release after the
-title-page due date is supplied. After that tag is published, inspect it with:
-
-```bash
-git checkout v1.0-assignment
-```
-
-This checks out the tagged snapshot. Use `git switch main` to return to ongoing
-development. Pushing this tagged snapshot to GitHub does not upload the assignment
-to the course portal.
-
-## Screenshots and Charts
-
-The [Stack screenshot](images/day4-stack.png) above shows the live interface.
-These charts come from the recorded CLI experiment:
-
-![Median runtime and interquartile ranges by input size](images/performance_chart.png)
-
-![Predicted and measured growth normalized to the smallest input](images/complexity_comparison.png)
-
-## Future Development
-
-- Add trees and hash tables to compare lookup and ordering trade-offs.
-- Add step-by-step animations for node links and individual search comparisons.
-- Extend experiments to deletion, successful searches, and mixed workloads.
-- Measure long insertion sequences and randomized case orders to study
-  amortized cost and reduce ordering effects.
-- Compare memory use and additional Python/runtime environments.
-
-## Further Reading
-
-- [Operation contracts and assignment requirements](docs/requirements.md)
-- [Seven-day assignment plan](docs/assignment_plan.md)
-- [Test plan](docs/test_plan.md)
-- [Day 1 setup notes](docs/day_1.md)
-- [Day 2 implementation notes](docs/day_2.md)
-- [Day 3 implementation and verification](docs/day_3.md)
-- [Day 4 interface and verification](docs/day_4.md)
-- [Day 5 complexity analyzer](docs/day_5.md)
-- [Day 6 benchmarks and verification](docs/day_6.md)
-- [Day 7 release verification and submission checklist](docs/day_7.md)
+For the original scope and history, see the [requirements](docs/requirements.md),
+[seven-day plan](docs/assignment_plan.md), and milestone notes:
+[Day 1](docs/day_1.md) · [Day 2](docs/day_2.md) · [Day 3](docs/day_3.md) ·
+[Day 4](docs/day_4.md) · [Day 5](docs/day_5.md) · [Day 6](docs/day_6.md) ·
+[Day 7](docs/day_7.md).
