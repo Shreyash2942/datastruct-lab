@@ -28,7 +28,7 @@ def test_every_page_renders(page):
     app = open_page(page)
     assert len(app.title) >= 1
     if page == "Performance":
-        assert "Coming on Day" in app.info[0].value
+        assert "Nothing runs automatically" in app.info[0].value
 
 
 @pytest.mark.parametrize("page,add,remove,next_value,remaining", [
@@ -162,3 +162,40 @@ def test_analyzer_clearing_size_restores_valid_default():
     assert not app.exception
     assert app.number_input("complexity_size").value == 10_000
     assert app.metric[0].value == "O(1) amortized"
+
+
+def test_performance_requires_two_sizes_and_runs_only_on_request():
+    app = open_page("Performance")
+    app.multiselect("benchmark_sizes").set_value([100]).run()
+    assert app.button("run_benchmarks").disabled
+    assert "at least two" in app.warning[0].value
+    app.multiselect("benchmark_sizes").set_value([100, 1000]).run()
+    assert not app.button("run_benchmarks").disabled
+    assert "Nothing runs automatically" in app.info[0].value
+
+
+def test_performance_results_survive_navigation_without_mutating_live_state(monkeypatch):
+    from src.benchmark import performance_tester as runner
+    real_run = runner.run_benchmarks
+    calls = []
+    def small_run(sizes, trials, progress):
+        calls.append((sizes, trials))
+        return real_run((3, 7), 2, 0, progress)
+    monkeypatch.setattr(runner, "run_benchmarks", small_run)
+    app = open_page("Stack")
+    click(app, "Stack", "Push", "42")
+    app.radio("page").set_value("Performance").run()
+    assert not calls
+    app.button("run_benchmarks").click().run(timeout=30)
+    assert not app.exception
+    assert len(calls) == 1
+    assert len(app.dataframe[0].value) == 12
+    assert app.session_state["structures"]["Stack"].to_list() == [42]
+    bundle = app.session_state["performance_bundle"]
+    assert bundle.startswith(b"PK")
+    app.number_input("benchmark_trials").set_value(40).run()
+    assert len(calls) == 1
+    app.radio("page").set_value("Home").run()
+    app.radio("page").set_value("Performance").run()
+    assert not app.exception and len(calls) == 1
+    assert app.session_state["performance_bundle"] == bundle

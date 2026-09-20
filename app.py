@@ -5,6 +5,8 @@ import re
 import streamlit as st
 
 from src.analysis import analyze_complexity, supported_operations, supported_structures
+from src.benchmark.performance_tester import DEFAULT_SIZES, run_benchmarks
+from src.benchmark.reporting import build_artifacts, zip_artifacts
 from src.structures import LinkedList, Queue, Stack
 from src.visualization.visualizer import DIAGRAM_CSS, structure_diagram
 
@@ -180,6 +182,48 @@ def render_complexity() -> None:
     st.caption("Normalized to 1 at your selected n. This is a theoretical growth illustration, not a runtime measurement or a comparison of absolute speed between operations.")
 
 
+def render_performance() -> None:
+    """Run isolated benchmarks on demand and keep downloadable results in session."""
+    st.caption("05 / FROM THEORY TO MEASUREMENT")
+    st.title("Performance")
+    st.write("Measure insertions and missing-value searches for all three structures. Compare growth across input sizes using actual runtimes.")
+    sizes = st.multiselect("Input sizes", [100, 1_000, 10_000, 50_000, 100_000], default=list(DEFAULT_SIZES), key="benchmark_sizes")
+    trials = st.number_input("Trials per case", min_value=20, max_value=50, value=30, step=1, key="benchmark_trials")
+    st.caption("Six operations per size, three untimed warmups, fresh fixtures outside timing, and median nanoseconds. Your live structures stay unchanged.")
+    if len(sizes) < 2:
+        st.warning("Choose at least two sizes to compare growth.")
+    if st.button("Run benchmarks", key="run_benchmarks", type="primary", disabled=len(sizes) < 2):
+        progress = st.progress(0, text="Preparing measurements…")
+        try:
+            with st.spinner("Measuring operations and generating charts…"):
+                run = run_benchmarks(sizes, trials, progress=lambda done, total: progress.progress(done / total, text=f"Measured {done} of {total} cases"))
+                artifacts = build_artifacts(run)
+                bundle = zip_artifacts(artifacts)
+            st.session_state.performance_run = run
+            st.session_state.performance_artifacts = artifacts
+            st.session_state.performance_bundle = bundle
+            st.success("Benchmark run complete. Results and downloads are ready.")
+        except ValueError as error:
+            st.warning(str(error))
+        finally:
+            progress.empty()
+    if "performance_run" not in st.session_state:
+        st.info("Click Run benchmarks to collect measurements. Nothing runs automatically when you open this page.")
+        return
+    run = st.session_state.performance_run
+    artifacts = st.session_state.performance_artifacts
+    st.subheader("Latest completed run")
+    st.caption(f"{run.metadata['started_utc']} · sizes {run.metadata['input_sizes']} · {run.metadata['trials_per_case']} trials per case. Changing the controls does not change these results until you run again.")
+    st.dataframe([r.summary() for r in run.results], hide_index=True)
+    st.caption("Runtime = median nanoseconds. P25/P75 show the middle half of measured samples.")
+    st.image(artifacts["images/performance_chart.png"], caption="Actual runtime; shading shows sample variability.")
+    st.image(artifacts["images/complexity_comparison.png"], caption="Predicted versus observed growth, normalized to each operation's smallest input size.")
+    st.info("Big-O predicts growth, not exact runtime. Short timings are sensitive to timer overhead, allocation, and background activity. The downloaded report explains these limitations.")
+    st.download_button("Download CSV", artifacts["data/benchmark_results.csv"], "benchmark_results.csv", "text/csv", key="download_benchmark_csv")
+    st.download_button("Download full report bundle", st.session_state.performance_bundle, "benchmark_report.zip", "application/zip", key="download_benchmark_bundle")
+    st.caption("Downloads belong to this session. UI runs do not overwrite the saved project reports.")
+
+
 def main() -> None:
     """Launch the seven-page learning interface."""
     st.set_page_config(page_title="DataStruct Lab", page_icon="🧩", layout="wide")
@@ -199,16 +243,15 @@ def main() -> None:
     elif page == "Complexity Analyzer":
         render_complexity()
     elif page == "Performance":
-        st.title("Performance")
-        st.info("Coming on Day 6: repeated benchmarks, measured runtimes, CSV results, and growth comparison charts.")
-        st.write("Big-O describes how work grows with input size; it does not predict exact runtime. No benchmark measurements have been generated yet.")
+        render_performance()
     else:
         st.title("About this lab")
         st.write("DataStruct Lab is a Python learning project for CSC506 Design and Analysis of Algorithms. It connects small, documented implementations with hands-on visual demonstrations.")
         st.subheader("What you can explore today")
         st.write("Stack, Queue, and singly Linked List operations, diagrams, and real-world use cases. All three structures keep independent state while you navigate.")
         st.write("The Complexity Analyzer explains time and space bounds for every public operation, with an illustrative growth comparison.")
-        st.caption("Built with Python and Streamlit. Measured performance is the next milestone.")
+        st.write("The Performance page measures repeated operations and exports CSV data, charts, and an analysis report.")
+        st.caption("Built with Python, Streamlit, and Matplotlib. Final submission documentation and the demo are the next milestone.")
 
 
 if __name__ == "__main__":

@@ -1,1 +1,1 @@
-"""Repeated operation timing planned for Day 6."""
+"""Repeated operation timing and exports for the learning lab."""
