@@ -1,40 +1,55 @@
 # Day 7 — Final analysis, demonstration, and release
 
-The assignment materials are prepared for review. The APA title page's due date
-still needs to be supplied before the final submission release. The planned Git
-tag `v1.0-assignment` will preserve the release snapshot; it will not indicate
-that a course submission has been uploaded.
+The author supplied a refined final report and a new recording on September 20,
+2026. The report title page now includes that date. The planned Git tag
+`v1.0-assignment` has not been created. Publishing repository changes does not
+upload an assignment to the course portal.
 
 ## Deliverables
 
-- [APA-style Word report](../reports/data_structure_analysis_APA.docx), with
-  Shreyashkumar Patel and instructor Jonathan Vanover on its title page.
-  Word verifies nine pages: title (1), analysis (2–4), references (5), selected
-  tests (6), performance comparison (7), and measured-data charts (8–9).
+- [Refined final Word report](../reports/DataStruct_Lab_Refined_Final_Report.docx),
+  supplied by the author, with Shreyashkumar Patel, Jonathan Vanover, and
+  September 20, 2026 on its title page. It contains three tables and two charts.
 - [Data structure analysis](../reports/data_structure_analysis.md) with a
   verified [US Letter PDF](../reports/data_structure_analysis.pdf) containing
-  three analysis pages and one reference page. Appendices are in the Word report.
+  three analysis pages and one reference page. These earlier analysis versions
+  are not exports of the newly supplied Word report.
 - [Implementation guide](implementation_guide.md) explaining all three
   structures, all 20 public operations, UI flow, predictions, and timing.
 - [Nine selected test cases](selected_test_cases.md), three per structure,
   with inputs, expected outcomes, and exact pytest commands.
 - [README](../README.md) covering setup, every feature, operation examples,
   tests, performance, screenshots, reports, and future development.
-- [Demo script](demo_script.md), [MP4 walkthrough](../demo/datastruct-lab-demo.mp4),
-  [exact narration transcript](../demo/transcript.md), and
-  [WebVTT captions](../demo/captions.vtt).
-- [The video run's downloaded benchmark bundle](../demo/benchmark_report.zip).
-  This is a separate run from the Day 6 CLI artifacts, so runtimes differ.
+- [Current MP4 walkthrough](../demo/datastruct-lab-demo.mp4), approximately 12:08.
+  See [recording notes](../demo/README.md) for the distinction between the current
+  recording and the historical transcript, captions, and original demo script.
 - Existing [performance report](../reports/performance_report.md), charts,
   raw samples, and environment metadata remain reproducible.
 
-The 4-minute, 51-second recording uses actual Streamlit interactions with a visible
-**Computer-generated narration** label. Microsoft Zira supplies the synthesized
-voice. It demonstrates all three structures, complexity predictions, a real
-benchmark run, downloads, and both charts. Captions are included in the MP4
-and as a separate WebVTT file; sentence timings are approximate.
+The new recording replaces the earlier computer-narrated demonstration. The
+repository copy is compressed at the original 1920 × 1032 resolution, with the
+original AAC audio stream retained. The uncompressed source recording and the
+personal recording guide remain outside the repository. The previous video's
+benchmark ZIP was removed by the author.
 
-## Final verification
+## Replacement artifact checks
+
+- The supplied Word document opens through python-docx and contains its title
+  fields, three tables, and two embedded charts. Its contents were preserved.
+- The compressed recording is 728 seconds (12:08), approximately 18.2 MiB,
+  with 1920 × 1032 H.264 video and the original AAC audio stream.
+- The entire compressed audio/video file decoded without errors. Sampled
+  structure and performance-chart frames were inspected for readability.
+- The original recording was moved outside the repository; its SHA256 hash
+  was verified after the move. No transcript matching the new video was created.
+- Relative Markdown file links resolve after the report/video replacements.
+- This update changes documents and media only; the previously passing test
+  suite was not rerun because application code and tests were unchanged.
+
+## Earlier application and artifact verification
+
+These checks describe the prior verified application and saved benchmark run.
+The source code and automated tests were not changed by the report/video update.
 
 - **128 pytest cases passed** on Windows with Python 3.14.4.
 - `pip check`: no broken requirements.
@@ -52,13 +67,14 @@ and as a separate WebVTT file; sentence timings are approximate.
   both tracked PNG charts byte-for-byte from the saved run.
 - PDF page count verified as four; the first and third analysis pages were
   rendered and visually inspected for spacing, readability, and overflow.
-- Word opened the revised APA document and reported nine pages, with exactly
+- Word opened the previous APA document and reported nine pages, with exactly
   three analysis pages. Document checks
   verified US Letter paper, one-inch margins, 12-point Times New Roman, double
   body spacing, a page-number field, first-line indents, and hanging reference
   indents. Tables use 11-point text and single spacing for readability.
   In-text citations match the two references. The companion PDF is rendered
-  separately from the same analysis text; it excludes the cover and appendices.
+  separately from that earlier analysis text; it excludes the cover and appendices.
+  These page-count and formatting checks do not describe the replacement Word file.
 - Report measurements match the saved Windows/CPython 3.14.4 run: six operation
   types, four input sizes, 30 trials, 24 summary rows, and 720 raw samples.
   Both embedded charts are the saved project charts. No prediction-accuracy
@@ -66,10 +82,10 @@ and as a separate WebVTT file; sentence timings are approximate.
 - The latest full pytest run passed all 128 cases; the nine highlighted cases
   were individually matched to those results. Runnable implementation examples
   and local documentation links were also checked.
-- MP4 duration: 291.42 seconds (4:51); 1280 × 960 H.264 video, AAC audio, and
+- Previous MP4 duration: 291.42 seconds (4:51); 1280 × 960 H.264 video, AAC audio, and
   an embedded subtitle stream. Full audio/video decoding and Edge playback
   passed. Representative frames were visually reviewed. The separate WebVTT
-  file is available for players that do not expose the embedded subtitle track.
+  file belongs only to that earlier video, which has now been replaced.
 - A final CLI repeat produced all 24 cases and six artifacts in an external
   verification directory without replacing the saved assignment data.
 
@@ -81,7 +97,8 @@ and as a separate WebVTT file; sentence timings are approximate.
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-Follow [the demo script](demo_script.md) for the browser sequence. To run a new
+The [original demo script](demo_script.md) documents the earlier browser sequence.
+The author's personal recording guide is outside the repository. To run a new
 CLI benchmark without replacing the recorded assignment data:
 
 ```powershell
@@ -90,11 +107,11 @@ CLI benchmark without replacing the recorded assignment data:
 
 ## Submission checklist
 
-- Enter the assignment due date on the APA title page.
-- Review the three-page analysis, supporting appendices, and video against the
-  instructor's rubric; a separate original rubric has not been provided.
-- After completing the due date and creating the planned release tag, use that
-  tagged repository snapshot for the source-code deliverable.
+- Review the supplied final report and recording against the instructor's rubric;
+  a separate original rubric has not been provided. Earlier page-count checks
+  apply to the earlier analysis, not the replacement report.
+- Use the published commit for the source-code deliverable, or create the planned
+  release tag if a tagged snapshot is needed.
 - Upload the requested analysis, performance materials, and demo video to the
   course portal, or provide links if the instructor requests links.
 - Confirm successful upload in the portal. No portal submission was performed

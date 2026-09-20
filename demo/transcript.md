@@ -1,9 +1,10 @@
 # Recorded demonstration transcript
 
-This is the exact text used for Microsoft Zira computer-generated narration.
-The MP4 visibly labels synthesized narration and records actual browser operations.
-The walkthrough performs a new benchmark; its downloaded results are in
-[benchmark_report.zip](benchmark_report.zip), separate from the earlier CLI report.
+This is the historical text used for Microsoft Zira computer-generated narration
+in the earlier 4:51 video. It is not a transcript of the current author-supplied
+12:08 recording. The matching historical captions are in captions.vtt.
+The earlier walkthrough used a separate benchmark run. Its former downloaded
+bundle has been removed from the current submission materials.
 
 ## Chapters
 

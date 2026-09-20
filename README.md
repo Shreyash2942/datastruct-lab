@@ -221,24 +221,23 @@ results and limitations.
 
 | Material | What it contains |
 | --- | --- |
-| [APA Word report](reports/data_structure_analysis_APA.docx) | Nine pages: title, three analysis pages, references, selected tests, performance comparison, and two charts |
-| [Analysis PDF](reports/data_structure_analysis.pdf) | Three analysis pages plus references; supporting appendices are in the Word report |
-| [Markdown analysis](reports/data_structure_analysis.md) | Structure importance, implementation, and selection criteria |
+| [Refined final Word report](reports/DataStruct_Lab_Refined_Final_Report.docx) | Updated analysis, implementation explanations, selected tests, performance tables, charts, and references |
+| [Earlier analysis PDF](reports/data_structure_analysis.pdf) | Three analysis pages plus references; this is an earlier analysis version, not an export of the refined Word report |
+| [Markdown analysis](reports/data_structure_analysis.md) | Earlier analysis of structure importance, implementation, and selection criteria |
 | [Implementation guide](docs/implementation_guide.md) | All 20 methods, runnable examples, and how the app and analysis tools work |
 | [Selected test cases](docs/selected_test_cases.md) | Three existing cases per structure, with inputs, expected outcomes, and commands |
 | [Performance report](reports/performance_report.md) | Measured comparisons, methodology, charts, and limitations |
-| [App walkthrough — 4:51 MP4](demo/datastruct-lab-demo.mp4) | Actual app interactions with clearly labeled computer-generated narration |
+| [App walkthrough — 12:08 MP4](demo/datastruct-lab-demo.mp4) | Updated screen recording supplied by the author, compressed for repository download |
 
-The walkthrough includes [a transcript](demo/transcript.md),
-[WebVTT captions](demo/captions.vtt), and
-[the benchmark bundle downloaded during recording](demo/benchmark_report.zip).
-Download the MP4 if GitHub does not preview it. Its benchmark is a separate run
-from the saved CLI experiment, so the measured times differ.
+Download the MP4 if GitHub does not preview it. The earlier generated-voice
+transcript and captions remain as historical material; they do not describe or
+synchronize with the new recording. See [recording notes](demo/README.md).
+Any benchmark run in the video is separate from the saved CLI results in data/.
 
-**Submission status:** materials are prepared; the Word title-page due date
-still needs to be entered. The planned `v1.0-assignment` release tag has not
-been created. See the [submission checklist](docs/day_7.md) before uploading
-the required files to the course portal.
+**Submission status:** the author has supplied an updated recording and refined
+Word report, with September 20, 2026 on the title page. The planned
+`v1.0-assignment` release tag has not been created. See the
+[submission checklist](docs/day_7.md) before uploading to the course portal.
 
 ## Tests
 
